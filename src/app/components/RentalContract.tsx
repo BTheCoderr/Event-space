@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FileText, Download, Check, AlertTriangle, Clock, DollarSign } from 'lucide-react'
+import { FileText, Download, Check, AlertTriangle } from 'lucide-react'
 
 interface ContractData {
   clientName: string

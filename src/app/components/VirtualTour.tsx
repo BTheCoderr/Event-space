@@ -87,7 +87,6 @@ export default function VirtualTour() {
   const [selectedSpace, setSelectedSpace] = useState(spaces[0])
   const [selectedLayout, setSelectedLayout] = useState(tableLayouts[0])
   const [showLayoutPlanner, setShowLayoutPlanner] = useState(false)
-  const [is360View, setIs360View] = useState(false)
 
   return (
     <div className="max-w-6xl mx-auto">

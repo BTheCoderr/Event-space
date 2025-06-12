@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Calendar, ChevronLeft, ChevronRight, Clock, Users, DollarSign } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Clock } from 'lucide-react'
 
 interface BookedDate {
   date: string

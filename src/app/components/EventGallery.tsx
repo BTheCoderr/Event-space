@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Heart, Eye, Calendar, Users, X } from 'lucide-react'
+import { Eye, Calendar, Users, X } from 'lucide-react'
 
 interface Event {
   id: string

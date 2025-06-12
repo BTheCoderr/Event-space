@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ShoppingCart, Plus, Minus, Package, CreditCard, Check } from 'lucide-react'
+import { ShoppingCart, Plus, Minus, CreditCard } from 'lucide-react'
 
 interface InventoryItem {
   id: string
@@ -99,8 +99,9 @@ export default function InventoryShowcase() {
     setCart(prev => {
       const newQuantity = (prev[itemId] || 0) - quantity
       if (newQuantity <= 0) {
-        const { [itemId]: removed, ...rest } = prev
-        return rest
+        const newCart = { ...prev }
+        delete newCart[itemId]
+        return newCart
       }
       return { ...prev, [itemId]: newQuantity }
     })

@@ -44,7 +44,7 @@ export default function OwnerInfo() {
         <h3 className="text-3xl font-bold mb-6">Our Story</h3>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Founded in 2009, Elite Event Spaces began as a dream to create extraordinary venues 
-          where life's most precious moments unfold. What started as a single event hall has 
+          where life&apos;s most precious moments unfold. What started as a single event hall has 
           grown into a premier destination for weddings, corporate events, and celebrations 
           of all kinds. Our commitment to excellence and personal touch has made us the 
           preferred choice for thousands of satisfied clients.
@@ -113,7 +113,7 @@ export default function OwnerInfo() {
           <p className="text-gray-600 leading-relaxed">
             To provide exceptional event venues and unparalleled service that transform 
             your special occasions into unforgettable memories. We believe every event 
-            deserves the perfect setting, and we're dedicated to making that vision a reality.
+            deserves the perfect setting, and we&apos;re dedicated to making that vision a reality.
           </p>
         </div>
         
@@ -157,7 +157,7 @@ export default function OwnerInfo() {
           <div>
             <div className="text-3xl mb-2">💍</div>
             <h5 className="font-semibold mb-2">Top Wedding Venue</h5>
-            <p className="text-sm opacity-90">Wedding Wire Couples' Choice</p>
+            <p className="text-sm opacity-90">Wedding Wire Couples&apos; Choice</p>
           </div>
         </div>
       </div>

@@ -1,21 +1,18 @@
 'use client'
 
-import { useState } from 'react'
-import { Calendar, MapPin, Users, Star, Phone, Mail, MessageCircle, Camera, FileText, CreditCard, Bell, Camera as CameraIcon, ChevronRight, Play, Heart, Check } from 'lucide-react'
+import { MapPin, Users, Star, Phone, Mail } from 'lucide-react'
 import ChatBox from './components/ChatBox'
 import AvailabilityCalendar from './components/AvailabilityCalendar'
 import VirtualTour from './components/VirtualTour'
 import InventoryShowcase from './components/InventoryShowcase'
 import ContactForm from './components/ContactForm'
 import EventGallery from './components/EventGallery'
-import RentalContract from './components/RentalContract'
 import OwnerInfo from './components/OwnerInfo'
 import ParticleBackground from './components/ParticleBackground'
 import ScrollIndicator from './components/ScrollIndicator'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('home')
 
   return (
     <div className="min-h-screen bg-gray-50">

@@ -71,7 +71,7 @@ export default function ContactForm() {
           </div>
           <h3 className="text-xl font-semibold text-green-800 mb-2">Thank You!</h3>
           <p className="text-green-700 mb-4">
-            We've received your inquiry and will get back to you within 24 hours.
+            We&apos;ve received your inquiry and will get back to you within 24 hours.
           </p>
           <p className="text-sm text-green-600">
             Check your email for a confirmation and our event planning guide.
@@ -89,7 +89,7 @@ export default function ContactForm() {
           <div>
             <h3 className="text-2xl font-semibold mb-4">Get In Touch</h3>
             <p className="text-gray-600 mb-6">
-              Ready to plan your perfect event? Contact us today and let's make your vision come to life.
+              Ready to plan your perfect event? Contact us today and let&apos;s make your vision come to life.
             </p>
           </div>
           
