@@ -46,14 +46,14 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-24 gradient-bg relative min-h-screen flex items-center">
+      <section id="home" className="gradient-bg relative min-h-screen flex items-center justify-center">
         <ParticleBackground />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 pt-24">
           <div className="text-center text-white">
-            <h1 className="text-6xl md:text-8xl font-bold mb-16 floating-animation hero-title leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 floating-animation hero-title leading-tight">
               Elite Event Spaces
             </h1>
-            <div className="hero-subtitle text-xl md:text-2xl mb-20 max-w-4xl mx-auto leading-relaxed font-light">
+            <div className="hero-subtitle text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed font-light">
               Create unforgettable memories in our premium event venues. From intimate gatherings to grand celebrations, we provide the perfect backdrop for your special moments.
             </div>
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
