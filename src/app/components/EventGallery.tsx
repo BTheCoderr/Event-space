@@ -28,11 +28,11 @@ const events: Event[] = [
     guestCount: 80,
     type: 'Quinceañera/Sweet 16',
     media: [
+      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-05.jpg' },
       { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-01.jpg' },
       { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-02.jpg' },
       { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-03.jpg' },
       { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-04.jpg' },
-      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-05.jpg' },
       { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-06.jpg' }
     ],
     description: 'An elegant quinceañera celebration featuring luxurious black and gold decor, throne seating, and stunning floral arrangements. A truly magical evening celebrating this milestone birthday with style and sophistication.',
@@ -70,9 +70,9 @@ const events: Event[] = [
     guestCount: 45,
     type: 'Holiday Party',
     media: [
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-03.jpg' },
       { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-01.jpg' },
       { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-02.jpg' },
-      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-03.jpg' },
       { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-04.jpg' },
       { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-05.jpg' },
       { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-06.jpg' },
@@ -104,7 +104,7 @@ const events: Event[] = [
   },
   {
     id: '5',
-    title: 'Sweet 15 Gold & Red Elegance',
+    title: 'Sweet 16 Gold & Red Elegance',
     date: '',
     guestCount: 75,
     type: 'Quinceañera/Sweet 16',
@@ -623,7 +623,7 @@ export default function EventGallery() {
                 <img
                   src={getCurrentMedia()?.url}
                   alt={`${selectedEvent.title} - Media ${currentMediaIndex + 1}`}
-                  className="w-full h-96 object-cover"
+                  className="w-full h-96 object-contain bg-gray-100"
                 />
               )}
               
