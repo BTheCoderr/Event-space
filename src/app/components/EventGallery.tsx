@@ -128,6 +128,22 @@ const events: Event[] = [
     ],
     description: 'A delightful Easter celebration filled with joy and festive spring decor. This holiday party featured beautiful pastel arrangements, themed decorations, and a warm family atmosphere. Events On Charles transformed the space into a perfect Easter wonderland for this special seasonal gathering.',
     featured: true
+  },
+  {
+    id: '7',
+    title: 'Kids Birthday Party Fun',
+    date: '',
+    guestCount: 25,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-01.jpg' },
+      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-02.jpg' },
+      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-03.jpg' },
+      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-04.jpg' },
+      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-05.jpg' }
+    ],
+    description: 'A vibrant and joyful kids birthday party filled with laughter and excitement. This colorful celebration featured fun decorations, entertaining activities, and all the elements needed for an unforgettable childhood birthday experience. Events On Charles creates magical moments that children will treasure forever.',
+    featured: true
   }
 ]
 
