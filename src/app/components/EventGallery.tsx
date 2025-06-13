@@ -23,35 +23,6 @@ interface Event {
 const events: Event[] = [
   {
     id: '1',
-    title: 'Sarah & Michael\'s Wedding',
-    date: '2024-05-14',
-    guestCount: 150,
-    type: 'Wedding',
-    media: [
-      { type: 'image', url: 'https://picsum.photos/400/300?random=11' },
-      { type: 'image', url: 'https://picsum.photos/400/300?random=12' },
-      { type: 'image', url: 'https://picsum.photos/400/300?random=13' },
-      { type: 'video', url: '/videos/wedding-sample.mp4', thumbnail: 'https://picsum.photos/400/300?random=21' }
-    ],
-    description: 'A beautiful garden wedding with elegant floral arrangements and romantic lighting.',
-    featured: true
-  },
-  {
-    id: '2',
-    title: 'TechCorp Annual Conference',
-    date: '2024-04-21',
-    guestCount: 200,
-    type: 'Corporate Event',
-    media: [
-      { type: 'image', url: 'https://picsum.photos/400/300?random=14' },
-      { type: 'video', url: '/videos/corporate-sample.mp4', thumbnail: 'https://picsum.photos/400/300?random=22' },
-      { type: 'image', url: 'https://picsum.photos/400/300?random=15' }
-    ],
-    description: 'Professional corporate conference with state-of-the-art AV equipment.',
-    featured: false
-  },
-  {
-    id: '3',
     title: 'Sweet 15 Elegant Celebration',
     date: '',
     guestCount: 80,
@@ -68,46 +39,32 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '4',
-    title: 'Golden Anniversary Celebration',
-    date: '2024-02-13',
-    guestCount: 120,
-    type: 'Anniversary',
-    media: [
-      { type: 'image', url: 'https://picsum.photos/400/300?random=20' },
-      { type: 'video', url: '/videos/anniversary-sample.mp4', thumbnail: 'https://picsum.photos/400/300?random=24' },
-      { type: 'image', url: 'https://picsum.photos/400/300?random=21' }
-    ],
-    description: 'An elegant 50th anniversary celebration with family and friends.',
-    featured: false
-  },
-  {
-    id: '5',
+    id: '2',
     title: 'Graduation Celebration - Black & Pink',
     date: '',
     guestCount: 60,
     type: 'Graduation Party',
     media: [
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-01.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-02.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-03.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-04.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-05.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-06.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-07.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-08.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-09.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-10.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-11.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-12.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-13.jpg' },
-      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-14.jpg' }
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-01.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-02.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-03.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-04.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-05.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-06.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-07.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-08.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-09.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-10.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-11.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-12.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-13.jpg' },
+      { type: 'image', url: '/images/gallery/graduationpartyblkandpink/graduation-celebration-blkpink-14.jpg' }
     ],
     description: 'A stunning graduation celebration featuring elegant black and pink decor. This milestone celebration showcased sophisticated styling with balloon arrangements, custom signage, and beautiful table settings. A perfect example of how Events On Charles transforms academic achievements into memorable celebrations.',
     featured: true
   },
   {
-    id: '6',
+    id: '3',
     title: 'Easter Celebration Party',
     date: '',
     guestCount: 45,
@@ -130,7 +87,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '7',
+    id: '4',
     title: 'Kids Birthday Party Fun',
     date: '',
     guestCount: 25,
@@ -146,7 +103,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '8',
+    id: '5',
     title: 'Sweet 15 Gold & Red Elegance',
     date: '',
     guestCount: 75,
@@ -167,7 +124,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '9',
+    id: '6',
     title: 'Happy Birthday Black & Gold Elegance',
     date: '',
     guestCount: 50,
@@ -191,7 +148,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '10',
+    id: '7',
     title: 'Happy 40th Birthday Red & Black Celebration',
     date: '',
     guestCount: 65,
@@ -209,7 +166,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '11',
+    id: '8',
     title: 'Baby Shower White & Pink Elegance',
     date: '',
     guestCount: 45,
@@ -231,7 +188,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '12',
+    id: '9',
     title: 'Themed Birthday Party Celebration',
     date: '',
     guestCount: 40,
@@ -251,7 +208,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '13',
+    id: '10',
     title: 'Baby Shower Blue White & Silver Elegance',
     date: '',
     guestCount: 35,
@@ -275,7 +232,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '14',
+    id: '11',
     title: 'Minnie Mouse Birthday Themed Party',
     date: '',
     guestCount: 30,
@@ -293,7 +250,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '15',
+    id: '12',
     title: 'Birthday Party Black & Bronze Elegance',
     date: '',
     guestCount: 65,
@@ -319,7 +276,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '16',
+    id: '13',
     title: 'Birthday Party Blue White & Gold Elegance',
     date: '',
     guestCount: 55,
@@ -342,7 +299,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '17',
+    id: '14',
     title: 'Halloween Theme Party Celebration',
     date: '',
     guestCount: 40,
@@ -363,7 +320,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '18',
+    id: '15',
     title: 'Animal Themed Baby Shower',
     date: '',
     guestCount: 50,
@@ -391,7 +348,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '19',
+    id: '16',
     title: 'Race Car Theme Kids Birthday Party',
     date: '',
     guestCount: 25,
@@ -411,7 +368,7 @@ const events: Event[] = [
     featured: true
   },
   {
-    id: '20',
+    id: '17',
     title: 'Birthday Party Celebration',
     date: '',
     guestCount: 45,
@@ -426,6 +383,27 @@ const events: Event[] = [
       { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-07.jpg' }
     ],
     description: 'A classic birthday party celebration that captured the joy and excitement of a special day! This festive gathering featured beautiful decorations, coordinated styling, and all the elements needed for a memorable birthday experience. Events On Charles created a perfect celebration that brought smiles and happiness to everyone in attendance.',
+    featured: true
+  },
+  {
+    id: '18',
+    title: 'Birthday Party Black & Gold Celebration',
+    date: '',
+    guestCount: 50,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-01.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-02.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-03.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-04.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-05.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-06.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-07.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-08.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-09.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkgld/birthday-party-black-gold-10.jpg' }
+    ],
+    description: 'An elegant birthday party celebration featuring a sophisticated black and gold color scheme. This stylish celebration showcased luxurious balloon arrangements, coordinated table settings, and refined decorations that created a glamorous atmosphere. Events On Charles delivered a memorable birthday experience that perfectly balanced elegance with festive joy.',
     featured: true
   }
 ]
