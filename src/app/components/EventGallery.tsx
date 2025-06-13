@@ -361,6 +361,34 @@ const events: Event[] = [
     ],
     description: 'A spooktacular Halloween themed party that brought the spirit of the season to life! This festive celebration featured creative Halloween decorations, themed elements, and atmospheric lighting that created the perfect spooky ambiance. Events On Charles specializes in creating memorable seasonal celebrations that capture the magic of every holiday.',
     featured: true
+  },
+  {
+    id: '18',
+    title: 'Animal Themed Baby Shower',
+    date: '',
+    guestCount: 50,
+    type: 'Baby Shower',
+    media: [
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-01.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-02.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-03.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-04.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-05.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-06.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-07.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-08.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-09.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-10.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-11.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-12.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-13.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-14.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-15.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-16.jpg' },
+      { type: 'image', url: '/images/gallery/animalthemedbabyshower/animal-themed-babyshower-17.jpg' }
+    ],
+    description: 'An adorable animal themed baby shower that brought the wild kingdom to life! This charming celebration featured cute animal decorations, safari-inspired elements, and playful touches that created a perfect jungle adventure atmosphere. Events On Charles created a memorable celebration that perfectly captured the joy and excitement of welcoming a new little one.',
+    featured: true
   }
 ]
 
