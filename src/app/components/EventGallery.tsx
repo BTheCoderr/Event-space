@@ -53,16 +53,16 @@ const events: Event[] = [
   {
     id: '3',
     title: 'Sweet 15 Elegant Celebration',
-    date: '2024-03-09',
+    date: '',
     guestCount: 80,
     type: 'Birthday Party',
     media: [
-      { type: 'image', url: '/images/sweet15-elegant-celebration-01.jpg' },
-      { type: 'image', url: '/images/sweet15-elegant-celebration-02.jpg' },
-      { type: 'image', url: '/images/sweet15-elegant-celebration-03.jpg' },
-      { type: 'image', url: '/images/sweet15-elegant-celebration-04.jpg' },
-      { type: 'image', url: '/images/sweet15-elegant-celebration-05.jpg' },
-      { type: 'image', url: '/images/sweet15-elegant-celebration-06.jpg' }
+      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-01.jpg' },
+      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-02.jpg' },
+      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-03.jpg' },
+      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-04.jpg' },
+      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-05.jpg' },
+      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-06.jpg' }
     ],
     description: 'An elegant quinceañera celebration featuring luxurious black and gold decor, throne seating, and stunning floral arrangements. A truly magical evening celebrating this milestone birthday with style and sophistication.',
     featured: true
@@ -226,7 +226,7 @@ export default function EventGallery() {
                 <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{new Date(event.date).toLocaleDateString()}</span>
+                    <span>{event.date ? new Date(event.date).toLocaleDateString() : 'Recent Event'}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Users className="w-4 h-4" />
@@ -327,7 +327,7 @@ export default function EventGallery() {
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-5 h-5 text-yellow-600" />
-                  <span>{new Date(selectedEvent.date).toLocaleDateString()}</span>
+                  <span>{selectedEvent.date ? new Date(selectedEvent.date).toLocaleDateString() : 'Recent Event'}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Users className="w-5 h-5 text-yellow-600" />
