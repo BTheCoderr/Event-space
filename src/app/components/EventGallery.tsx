@@ -165,6 +165,30 @@ const events: Event[] = [
     ],
     description: 'A sophisticated Sweet 15 celebration featuring stunning black, gold, and red color palette. This quinceañera showcased elegant balloon arrangements, luxurious table settings, and dramatic lighting that created an unforgettable atmosphere. Events On Charles delivered a truly royal celebration befitting this important milestone.',
     featured: true
+  },
+  {
+    id: '9',
+    title: 'Happy Birthday Black & Gold Elegance',
+    date: '',
+    guestCount: 50,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-01.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-02.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-03.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-04.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-05.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-06.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-07.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-08.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-09.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-10.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-11.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-12.jpg' },
+      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-13.jpg' }
+    ],
+    description: 'An sophisticated adult birthday celebration featuring an elegant black and gold theme. This stylish party showcased premium balloon arrangements, luxurious table settings, and refined decorations. Events On Charles created a memorable celebration that perfectly balanced sophistication with festive birthday joy.',
+    featured: true
   }
 ]
 
