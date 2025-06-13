@@ -20,7 +20,7 @@ const inventory: InventoryItem[] = [
     name: 'Round Tables (8-10 seats)',
     price: 15,
     category: 'Tables',
-    image: 'https://picsum.photos/300/200?random=5',
+    image: '/images/ecpackagesofferings/package-offering-01.jpg',
     description: 'Elegant round tables perfect for dining and conversations',
     available: 50,
     minRental: 1
@@ -30,7 +30,7 @@ const inventory: InventoryItem[] = [
     name: 'Chiavari Chairs',
     price: 8,
     category: 'Seating',
-    image: 'https://picsum.photos/300/200?random=6',
+    image: '/images/ecpackagesofferings/package-offering-02.jpg',
     description: 'Classic elegant chairs available in gold, silver, and natural wood',
     available: 300,
     minRental: 10
@@ -40,7 +40,7 @@ const inventory: InventoryItem[] = [
     name: 'Premium Table Linens',
     price: 12,
     category: 'Linens',
-    image: 'https://picsum.photos/300/200?random=7',
+    image: '/images/ecpackagesofferings/package-offering-03.jpg',
     description: 'High-quality linens in various colors and sizes',
     available: 100,
     minRental: 1
@@ -50,7 +50,7 @@ const inventory: InventoryItem[] = [
     name: 'Floral Centerpieces',
     price: 35,
     category: 'Decor',
-    image: 'https://picsum.photos/300/200?random=8',
+    image: '/images/ecpackagesofferings/package-offering-04.jpg',
     description: 'Beautiful fresh floral arrangements for tables',
     available: 30,
     minRental: 1
@@ -60,7 +60,7 @@ const inventory: InventoryItem[] = [
     name: 'Uplighting Package',
     price: 150,
     category: 'Lighting',
-    image: 'https://picsum.photos/300/200?random=9',
+    image: '/images/ecpackagesofferings/package-offering-05.jpg',
     description: 'LED uplighting to transform your space ambiance',
     available: 10,
     minRental: 1
@@ -70,14 +70,24 @@ const inventory: InventoryItem[] = [
     name: 'Portable Bar Setup',
     price: 200,
     category: 'Bar',
-    image: 'https://picsum.photos/300/200?random=10',
+    image: '/images/ecpackagesofferings/package-offering-06.jpg',
     description: 'Complete bar station with stools and accessories',
     available: 5,
+    minRental: 1
+  },
+  {
+    id: 'additional-services',
+    name: 'Additional Event Services',
+    price: 75,
+    category: 'Services',
+    image: '/images/ecpackagesofferings/package-offering-07.jpg',
+    description: 'Custom event coordination and additional venue services',
+    available: 20,
     minRental: 1
   }
 ]
 
-const categories = ['All', 'Tables', 'Seating', 'Linens', 'Decor', 'Lighting', 'Bar']
+const categories = ['All', 'Tables', 'Seating', 'Linens', 'Decor', 'Lighting', 'Bar', 'Services']
 
 export default function InventoryShowcase() {
   const [selectedCategory, setSelectedCategory] = useState('All')
