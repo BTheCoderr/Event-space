@@ -129,7 +129,7 @@ export default function VirtualTour() {
             </div>
             <button
               onClick={() => setShowLayoutPlanner(!showLayoutPlanner)}
-              className="mt-4 md:mt-0 bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+              className="mt-4 md:mt-0 bg-yellow-600 text-white px-6 py-2 rounded-lg hover:bg-yellow-700 transition-colors"
             >
               {showLayoutPlanner ? 'Hide' : 'Show'} Layout Planner
             </button>
@@ -143,7 +143,7 @@ export default function VirtualTour() {
               <ul className="space-y-2">
                 {selectedSpace.features.map((feature, index) => (
                   <li key={index} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                    <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -154,15 +154,15 @@ export default function VirtualTour() {
               <h4 className="font-semibold mb-3">Quick Actions</h4>
               <div className="space-y-2">
                 <button className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors flex items-center space-x-2">
-                  <Camera className="w-4 h-4 text-purple-600" />
+                  <Camera className="w-4 h-4 text-yellow-600" />
                   <span>Download Floor Plan</span>
                 </button>
                 <button className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors flex items-center space-x-2">
-                  <Maximize2 className="w-4 h-4 text-purple-600" />
+                  <Maximize2 className="w-4 h-4 text-yellow-600" />
                   <span>View in Full Screen</span>
                 </button>
                 <button className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors flex items-center space-x-2">
-                  <MapPin className="w-4 h-4 text-purple-600" />
+                  <MapPin className="w-4 h-4 text-yellow-600" />
                   <span>Get Directions</span>
                 </button>
               </div>
@@ -191,14 +191,14 @@ export default function VirtualTour() {
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <button
               onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
-              className="flex-1 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2"
+              className="flex-1 bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center space-x-2"
             >
               <Maximize2 className="w-5 h-5" />
               <span>Open in Full Screen</span>
             </button>
             <button
               onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
-              className="flex-1 border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 transition-colors flex items-center justify-center space-x-2"
+              className="flex-1 border-2 border-yellow-600 text-yellow-600 px-6 py-3 rounded-lg hover:bg-yellow-50 transition-colors flex items-center justify-center space-x-2"
             >
               <Camera className="w-5 h-5" />
               <span>Virtual Reality Mode</span>
@@ -215,8 +215,8 @@ export default function VirtualTour() {
             onClick={() => setSelectedSpace(space)}
             className={`text-left p-4 rounded-lg border-2 transition-all ${
               selectedSpace.id === space.id
-                ? 'border-purple-600 bg-purple-50'
-                : 'border-gray-200 hover:border-purple-300'
+                ? 'border-yellow-600 bg-yellow-50'
+                : 'border-gray-200 hover:border-yellow-300'
             }`}
           >
             <img
@@ -248,13 +248,13 @@ export default function VirtualTour() {
                     onClick={() => setSelectedLayout(layout)}
                     className={`w-full text-left p-4 rounded-lg border transition-colors ${
                       selectedLayout.name === layout.name
-                        ? 'border-purple-600 bg-purple-50'
-                        : 'border-gray-200 hover:border-purple-300'
+                        ? 'border-yellow-600 bg-yellow-50'
+                        : 'border-gray-200 hover:border-yellow-300'
                     }`}
                   >
                     <div className="flex justify-between items-start mb-2">
                       <h5 className="font-medium">{layout.name}</h5>
-                      <span className="text-sm text-purple-600">{layout.guestCount} guests</span>
+                      <span className="text-sm text-yellow-600">{layout.guestCount} guests</span>
                     </div>
                     <p className="text-sm text-gray-600 mb-1">{layout.description}</p>
                     <p className="text-xs text-gray-500">{layout.tables}</p>
@@ -267,8 +267,8 @@ export default function VirtualTour() {
               <h4 className="font-semibold mb-4">Preview: {selectedLayout.name}</h4>
               <div className="bg-gray-50 rounded-lg p-6 h-64 flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <MapPin className="w-8 h-8 text-purple-600" />
+                  <div className="w-16 h-16 bg-yellow-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <MapPin className="w-8 h-8 text-yellow-600" />
                   </div>
                   <p className="text-gray-600 text-sm mb-2">Interactive 3D Layout Preview</p>
                   <p className="text-xs text-gray-500">

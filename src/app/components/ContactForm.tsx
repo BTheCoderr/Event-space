@@ -95,38 +95,38 @@ export default function ContactForm() {
           
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Phone className="w-5 h-5 text-purple-600" />
+              <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <Phone className="w-5 h-5 text-yellow-600" />
               </div>
               <div>
                 <p className="font-medium">Phone</p>
-                <p className="text-gray-600">(555) 123-4567</p>
+                <p className="text-gray-600">(410) 555-0123</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Mail className="w-5 h-5 text-purple-600" />
+              <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <Mail className="w-5 h-5 text-yellow-600" />
               </div>
               <div>
                 <p className="font-medium">Email</p>
-                <p className="text-gray-600">info@eliteeventspaces.com</p>
+                <p className="text-gray-600">info@eventsoncharles.com</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-purple-600" />
+              <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-yellow-600" />
               </div>
               <div>
                 <p className="font-medium">Address</p>
-                <p className="text-gray-600">123 Event Street<br />City, State 12345</p>
+                <p className="text-gray-600">Charles Street<br />Baltimore, MD</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Clock className="w-5 h-5 text-purple-600" />
+              <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <Clock className="w-5 h-5 text-yellow-600" />
               </div>
               <div>
                 <p className="font-medium">Hours</p>
@@ -138,7 +138,7 @@ export default function ContactForm() {
             </div>
           </div>
           
-          <div className="bg-purple-50 rounded-lg p-6">
+          <div className="bg-yellow-50 rounded-lg p-6">
             <h4 className="font-semibold mb-3">Quick Response Guarantee</h4>
             <p className="text-sm text-gray-600">
               We respond to all inquiries within 24 hours. For urgent requests, 
@@ -162,7 +162,7 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="Your full name"
                 />
               </div>
@@ -178,7 +178,7 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="your@email.com"
                 />
               </div>
@@ -195,7 +195,7 @@ export default function ContactForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -209,7 +209,7 @@ export default function ContactForm() {
                   name="eventType"
                   value={formData.eventType}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 >
                   <option value="">Select event type</option>
                   <option value="wedding">Wedding</option>
@@ -233,7 +233,7 @@ export default function ContactForm() {
                   name="eventDate"
                   value={formData.eventDate}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 />
               </div>
               
@@ -247,7 +247,7 @@ export default function ContactForm() {
                   name="guestCount"
                   value={formData.guestCount}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="Number of guests"
                   min="1"
                 />
@@ -264,7 +264,7 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 placeholder="Tell us about your event vision, special requirements, or any questions..."
               />
             </div>
@@ -276,7 +276,7 @@ export default function ContactForm() {
                 name="marketingConsent"
                 checked={formData.marketingConsent}
                 onChange={handleInputChange}
-                className="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
+                className="mt-1 w-4 h-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-600"
               />
               <label htmlFor="marketingConsent" className="text-sm text-gray-600">
                 I agree to receive marketing communications about special offers, 
@@ -287,7 +287,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2 disabled:bg-gray-400"
+              className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center space-x-2 disabled:bg-gray-400"
             >
               {isSubmitting ? (
                 <>

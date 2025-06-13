@@ -115,7 +115,7 @@ export default function RentalContract() {
                 onClick={() => setActiveRuleCategory(category.category)}
                 className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${
                   activeRuleCategory === category.category
-                    ? 'bg-purple-50 text-purple-600 border-b-2 border-purple-600'
+                    ? 'bg-yellow-50 text-yellow-600 border-b-2 border-yellow-600'
                     : 'text-gray-600 hover:text-gray-800'
                 }`}
               >
@@ -131,7 +131,7 @@ export default function RentalContract() {
                 .find(cat => cat.category === activeRuleCategory)
                 ?.rules.map((rule, index) => (
                 <li key={index} className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-yellow-600 rounded-full mt-2 flex-shrink-0"></div>
                   <span className="text-gray-700 text-sm">{rule}</span>
                 </li>
               ))}
@@ -144,7 +144,7 @@ export default function RentalContract() {
                 type="checkbox"
                 checked={isRulesAccepted}
                 onChange={(e) => setIsRulesAccepted(e.target.checked)}
-                className="mt-1 w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-600"
+                className="mt-1 w-4 h-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-600"
               />
               <span className="text-sm text-gray-700">
                 I have read, understood, and agree to comply with all venue rules and policies listed above.
@@ -157,7 +157,7 @@ export default function RentalContract() {
         <div className="bg-white rounded-lg shadow-lg">
           <div className="p-6 border-b">
             <h3 className="text-xl font-semibold flex items-center">
-              <FileText className="w-5 h-5 mr-2 text-purple-600" />
+              <FileText className="w-5 h-5 mr-2 text-yellow-600" />
               Rental Contract
             </h3>
             <p className="text-gray-600 mt-2">
@@ -178,7 +178,7 @@ export default function RentalContract() {
                   value={contractData.clientName}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="Full name"
                 />
               </div>
@@ -194,7 +194,7 @@ export default function RentalContract() {
                   value={contractData.eventDate}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 />
               </div>
             </div>
@@ -210,7 +210,7 @@ export default function RentalContract() {
                   value={contractData.eventType}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 >
                   <option value="">Select event type</option>
                   <option value="wedding">Wedding</option>
@@ -234,7 +234,7 @@ export default function RentalContract() {
                   onChange={handleInputChange}
                   required
                   min="1"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="Number of guests"
                 />
               </div>
@@ -251,7 +251,7 @@ export default function RentalContract() {
                   value={contractData.duration}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 >
                   <option value="">Select duration</option>
                   <option value="4 hours">4 hours</option>
@@ -273,7 +273,7 @@ export default function RentalContract() {
                   onChange={handleInputChange}
                   required
                   min="0"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="$0"
                 />
               </div>
@@ -290,7 +290,7 @@ export default function RentalContract() {
                   onChange={handleInputChange}
                   required
                   min="0"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   placeholder="$0"
                 />
               </div>
@@ -306,7 +306,7 @@ export default function RentalContract() {
                 value={contractData.specialRequests}
                 onChange={handleInputChange}
                 rows={3}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 placeholder="Any special requirements or requests..."
               />
             </div>
@@ -316,7 +316,7 @@ export default function RentalContract() {
             <button
               onClick={generateContract}
               disabled={!isRulesAccepted || !contractData.clientName || !contractData.eventDate}
-              className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors disabled:bg-gray-400 flex items-center justify-center space-x-2"
+              className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700 transition-colors disabled:bg-gray-400 flex items-center justify-center space-x-2"
             >
               <FileText className="w-4 h-4" />
               <span>Generate Contract</span>
@@ -391,14 +391,14 @@ export default function RentalContract() {
                   Close
                 </button>
                 <div className="flex space-x-3">
-                  <button className="px-6 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors flex items-center space-x-2">
+                  <button className="px-6 py-2 border border-yellow-600 text-yellow-600 rounded-lg hover:bg-yellow-50 transition-colors flex items-center space-x-2">
                     <Download className="w-4 h-4" />
                     <span>Download PDF</span>
                   </button>
                   <button
                     onClick={signContract}
                     disabled={isContractSigned}
-                    className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:bg-green-600 flex items-center space-x-2"
+                    className="px-6 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors disabled:bg-green-600 flex items-center space-x-2"
                   >
                     <Check className="w-4 h-4" />
                     <span>{isContractSigned ? 'Signed!' : 'Sign Contract'}</span>

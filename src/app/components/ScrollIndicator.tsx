@@ -21,7 +21,7 @@ export default function ScrollIndicator() {
   return (
     <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-50">
       <div 
-        className="h-full bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 transition-all duration-300 ease-out shadow-lg"
+        className="h-full bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 transition-all duration-300 ease-out shadow-lg"
         style={{ width: `${scrollPercentage}%` }}
       />
     </div>

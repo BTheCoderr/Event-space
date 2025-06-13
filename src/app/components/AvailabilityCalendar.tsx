@@ -123,7 +123,7 @@ export default function AvailabilityCalendar() {
                       ? 'text-gray-400 cursor-not-allowed'
                       : isBooked
                       ? 'bg-red-100 text-red-600 cursor-not-allowed'
-                      : 'hover:bg-purple-100 hover:text-purple-600 cursor-pointer'
+                      : 'hover:bg-yellow-100 hover:text-yellow-600 cursor-pointer'
                   }`}
                   title={isBooked ? `Booked: ${bookingInfo?.eventType} (${bookingInfo?.timeSlot})` : ''}
                 >
@@ -157,14 +157,14 @@ export default function AvailabilityCalendar() {
         <div className="space-y-6">
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <Clock className="w-5 h-5 mr-2 text-purple-600" />
+              <Clock className="w-5 h-5 mr-2 text-yellow-600" />
               Time Slots & Pricing
             </h3>
             <div className="space-y-3">
               {timeSlots.map((slot, index) => (
                 <div key={index} className="flex justify-between items-center p-3 border rounded-lg hover:bg-gray-50">
                   <span className="text-sm">{slot.label}</span>
-                  <span className="font-semibold text-purple-600">${slot.price}</span>
+                  <span className="font-semibold text-yellow-600">${slot.price}</span>
                 </div>
               ))}
             </div>
@@ -201,7 +201,7 @@ export default function AvailabilityCalendar() {
                 <select
                   value={selectedTimeSlot}
                   onChange={(e) => setSelectedTimeSlot(e.target.value)}
-                  className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 >
                   <option value="">Select time slot</option>
                   {timeSlots.map((slot, index) => (
@@ -218,7 +218,7 @@ export default function AvailabilityCalendar() {
                   type="number"
                   value={guestCount}
                   onChange={(e) => setGuestCount(Number(e.target.value))}
-                  className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                   min="1"
                   max="500"
                 />
@@ -234,7 +234,7 @@ export default function AvailabilityCalendar() {
                 <button
                   onClick={handleBooking}
                   disabled={!selectedTimeSlot}
-                  className="flex-1 py-2 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:bg-gray-300"
+                  className="flex-1 py-2 px-4 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors disabled:bg-gray-300"
                 >
                   Request Booking
                 </button>

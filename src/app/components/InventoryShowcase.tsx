@@ -128,7 +128,7 @@ export default function InventoryShowcase() {
             onClick={() => setSelectedCategory(category)}
             className={`px-4 py-2 rounded-lg transition-colors ${
               selectedCategory === category
-                ? 'bg-purple-600 text-white'
+                ? 'bg-yellow-600 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -149,7 +149,7 @@ export default function InventoryShowcase() {
             <div className="p-4">
               <div className="flex justify-between items-start mb-2">
                 <h3 className="font-semibold text-lg">{item.name}</h3>
-                <span className="text-purple-600 font-bold">${item.price}</span>
+                <span className="text-yellow-600 font-bold">${item.price}</span>
               </div>
               <p className="text-gray-600 text-sm mb-3">{item.description}</p>
               <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
@@ -171,7 +171,7 @@ export default function InventoryShowcase() {
                   </span>
                   <button
                     onClick={() => addToCart(item.id)}
-                    className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors"
+                    className="w-8 h-8 bg-yellow-600 text-white rounded-full flex items-center justify-center hover:bg-yellow-700 transition-colors"
                   >
                     <Plus className="w-4 h-4" />
                   </button>
@@ -190,14 +190,14 @@ export default function InventoryShowcase() {
         <div className="fixed bottom-6 right-6 bg-white p-4 rounded-lg shadow-lg border">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center space-x-2">
-              <ShoppingCart className="w-5 h-5 text-purple-600" />
+              <ShoppingCart className="w-5 h-5 text-yellow-600" />
               <span className="font-semibold">{getCartItemCount()} items</span>
             </div>
-            <span className="font-bold text-purple-600">${getCartTotal()}</span>
+            <span className="font-bold text-yellow-600">${getCartTotal()}</span>
           </div>
           <button
             onClick={() => setShowCheckout(true)}
-            className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors"
+            className="w-full bg-yellow-600 text-white py-2 px-4 rounded-lg hover:bg-yellow-700 transition-colors"
           >
             Checkout
           </button>
@@ -232,12 +232,12 @@ export default function InventoryShowcase() {
             <div className="border-t pt-3 mb-4">
               <div className="flex justify-between items-center font-bold text-lg">
                 <span>Total:</span>
-                <span className="text-purple-600">${getCartTotal()}</span>
+                <span className="text-yellow-600">${getCartTotal()}</span>
               </div>
             </div>
             
             <div className="space-y-3">
-              <button className="w-full bg-purple-600 text-white py-3 px-4 rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2">
+              <button className="w-full bg-yellow-600 text-white py-3 px-4 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center space-x-2">
                 <CreditCard className="w-4 h-4" />
                 <span>Pay Now</span>
               </button>

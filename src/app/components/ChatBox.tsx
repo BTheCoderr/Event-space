@@ -87,7 +87,7 @@ export default function ChatBox() {
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 w-16 h-16 bg-purple-600 text-white rounded-full shadow-lg hover:bg-purple-700 transition-all z-50 pulse-glow ${isOpen ? 'hidden' : 'flex'} items-center justify-center`}
+        className={`fixed bottom-6 right-6 w-16 h-16 bg-yellow-600 text-white rounded-full shadow-lg hover:bg-yellow-700 transition-all z-50 pulse-glow ${isOpen ? 'hidden' : 'flex'} items-center justify-center`}
       >
         <MessageCircle className="w-6 h-6" />
       </button>
@@ -96,7 +96,7 @@ export default function ChatBox() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 w-96 h-96 bg-white rounded-lg shadow-2xl z-50 flex flex-col">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b bg-purple-600 text-white rounded-t-lg">
+          <div className="flex items-center justify-between p-4 border-b bg-yellow-600 text-white rounded-t-lg">
             <div className="flex items-center space-x-2">
               <Bot className="w-5 h-5" />
               <span className="font-semibold">Elite Events Support</span>
@@ -118,7 +118,7 @@ export default function ChatBox() {
               >
                 <div className={`max-w-[80%] p-3 rounded-lg ${
                   message.sender === 'user'
-                    ? 'bg-purple-600 text-white'
+                    ? 'bg-yellow-600 text-white'
                     : 'bg-gray-100 text-gray-800'
                 }`}>
                   <div className="flex items-start space-x-2">
@@ -140,11 +140,11 @@ export default function ChatBox() {
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="Ask about pricing, availability, or services..."
-                className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-sm"
+                className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600 text-sm"
               />
               <button
                 onClick={handleSendMessage}
-                className="bg-purple-600 text-white p-2 rounded-lg hover:bg-purple-700 transition-colors"
+                className="bg-yellow-600 text-white p-2 rounded-lg hover:bg-yellow-700 transition-colors"
               >
                 <Send className="w-4 h-4" />
               </button>

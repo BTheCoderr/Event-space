@@ -152,7 +152,7 @@ export default function EventGallery() {
                   <span>{event.guestCount} guests</span>
                 </div>
               </div>
-              <span className="inline-block bg-purple-100 text-purple-600 px-2 py-1 rounded text-xs font-medium">
+              <span className="inline-block bg-yellow-100 text-yellow-600 px-2 py-1 rounded text-xs font-medium">
                 {event.type}
               </span>
             </div>

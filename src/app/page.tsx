@@ -231,10 +231,10 @@ export default function Home() {
       <div className="fixed bottom-24 left-6 z-40 space-y-3">
         <button 
           onClick={() => window.open('mailto:info@eventsoncharles.com', '_self')}
-          className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
+          className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
           title="Email Us"
         >
-          📧
+          ��
         </button>
         <button 
           onClick={() => window.open('https://wa.me/14105550123', '_blank')}
@@ -245,11 +245,11 @@ export default function Home() {
         </button>
         <button 
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
+          className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
           title="Get Quote"
         >
-                     💰
-         </button>
+          ��
+        </button>
        </div>
        
        <ScrollToTop />

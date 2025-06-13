@@ -84,17 +84,17 @@ export default function OwnerInfo() {
             <div className="lg:w-2/3 space-y-6">
               <div>
                 <h4 className="text-2xl font-bold mb-2">{member.name}</h4>
-                <p className="text-purple-600 font-medium text-lg mb-4">{member.role}</p>
+                <p className="text-yellow-600 font-medium text-lg mb-4">{member.role}</p>
                 <p className="text-gray-600 leading-relaxed">{member.bio}</p>
               </div>
               
-                              <div className="bg-purple-50 rounded-lg p-6">
+                              <div className="bg-yellow-50 rounded-lg p-6">
                   <div>
                     <h5 className="font-semibold mb-3">Specialties:</h5>
                   <ul className="space-y-2">
                     {member.specialties.map((specialty, specialtyIndex) => (
                       <li key={specialtyIndex} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                        <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
                         <span className="text-gray-700">{specialty}</span>
                       </li>
                     ))}
