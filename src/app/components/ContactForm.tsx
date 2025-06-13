@@ -100,7 +100,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium">Phone</p>
-                <p className="text-gray-600">(410) 555-0123</p>
+                <p className="text-gray-600">(401) 671-6758</p>
               </div>
             </div>
             
@@ -120,7 +120,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium">Address</p>
-                <p className="text-gray-600">Charles Street<br />Baltimore, MD</p>
+                <p className="text-gray-600">593 Charles Street<br />Providence, RI 02904</p>
               </div>
             </div>
             

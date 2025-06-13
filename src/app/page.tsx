@@ -54,7 +54,7 @@ export default function Home() {
               Events On Charles
             </h1>
             <div className="hero-subtitle text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-              Where your most treasured moments come to life. Our elegant event space provides the perfect setting for weddings, celebrations, and corporate gatherings in the heart of the city.
+              Where your most treasured moments come to life. Our elegant event space provides the perfect setting for weddings, celebrations, and corporate gatherings in historic Providence, Rhode Island.
             </div>
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
               <button 
@@ -82,19 +82,19 @@ export default function Home() {
             {[
               {
                 icon: <MapPin className="w-8 h-8" />,
-                                  title: "Charles Street Location",
-                  description: "Conveniently located on historic Charles Street with elegant surroundings and easy accessibility."
-                },
-                {
-                  icon: <Users className="w-8 h-8" />,
-                  title: "Intimate & Grand Events",
-                  description: "Perfect for both intimate celebrations and larger gatherings, with flexible space configurations."
-                },
-                {
-                  icon: <Star className="w-8 h-8" />,
-                  title: "White-Glove Service",
-                  description: "Our experienced team provides personalized attention to make your event truly exceptional."
-                }
+                title: "Charles Street Location",
+                description: "Conveniently located on historic Charles Street in Providence, RI with elegant surroundings and easy accessibility."
+              },
+              {
+                icon: <Users className="w-8 h-8" />,
+                title: "Intimate & Grand Events",
+                description: "Perfect for both intimate celebrations and larger gatherings, with flexible space configurations."
+              },
+              {
+                icon: <Star className="w-8 h-8" />,
+                title: "White-Glove Service",
+                description: "Our experienced team provides personalized attention to make your event truly exceptional."
+              }
             ].map((feature, index) => (
               <div 
                 key={index} 
@@ -169,7 +169,7 @@ export default function Home() {
                 </div>
                 <span className="text-lg font-bold">Events On Charles</span>
               </div>
-              <p className="text-gray-400">Where your most treasured moments come to life on historic Charles Street.</p>
+              <p className="text-gray-400">Where your most treasured moments come to life on historic Charles Street in Providence, Rhode Island.</p>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Quick Links</h3>
@@ -194,7 +194,7 @@ export default function Home() {
               <div className="space-y-2 text-gray-400">
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4" />
-                  <span>(410) 555-0123</span>
+                  <span>(401) 671-6758</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="w-4 h-4" />
@@ -202,7 +202,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />
-                  <span>Charles Street, Baltimore, MD</span>
+                  <span>593 Charles Street, Providence, RI 02904</span>
                 </div>
               </div>
             </div>
@@ -219,11 +219,11 @@ export default function Home() {
       {/* Floating Action Button */}
       <div className="fixed bottom-6 left-6 z-50">
         <button 
-          onClick={() => window.open('tel:+14105550123', '_self')}
+          onClick={() => window.open('tel:+14016716758', '_self')}
           className="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover-scale pulse-glow magnetic-button ripple-effect"
           title="Call Us Now!"
         >
-          📞
+          ��
         </button>
       </div>
       
@@ -237,7 +237,7 @@ export default function Home() {
           ��
         </button>
         <button 
-          onClick={() => window.open('https://wa.me/14105550123', '_blank')}
+          onClick={() => window.open('https://wa.me/14016716758', '_blank')}
           className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
           title="WhatsApp"
         >
