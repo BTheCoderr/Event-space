@@ -89,7 +89,6 @@ export default function EventGallery() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0)
   const [showUploadModal, setShowUploadModal] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
 
   const filteredEvents = selectedType === 'All' 
     ? events 
@@ -98,13 +97,11 @@ export default function EventGallery() {
   const openEventModal = (event: Event) => {
     setSelectedEvent(event)
     setCurrentMediaIndex(0)
-    setIsPlaying(false)
   }
 
   const closeModal = () => {
     setSelectedEvent(null)
     setCurrentMediaIndex(0)
-    setIsPlaying(false)
   }
 
   const nextMedia = () => {
@@ -112,7 +109,6 @@ export default function EventGallery() {
       setCurrentMediaIndex((prev) => 
         prev === selectedEvent.media.length - 1 ? 0 : prev + 1
       )
-      setIsPlaying(false)
     }
   }
 
@@ -121,12 +117,7 @@ export default function EventGallery() {
       setCurrentMediaIndex((prev) => 
         prev === 0 ? selectedEvent.media.length - 1 : prev - 1
       )
-      setIsPlaying(false)
     }
-  }
-
-  const getTotalMediaCount = (event: Event) => {
-    return event.media.length
   }
 
   const getMediaCounts = (event: Event) => {
@@ -273,8 +264,6 @@ export default function EventGallery() {
                   className="w-full h-96 object-cover"
                   controls
                   poster={getCurrentMedia()?.thumbnail}
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
                 >
                   Your browser does not support the video tag.
                 </video>
@@ -305,10 +294,7 @@ export default function EventGallery() {
                     {selectedEvent.media.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => {
-                          setCurrentMediaIndex(index)
-                          setIsPlaying(false)
-                        }}
+                        onClick={() => setCurrentMediaIndex(index)}
                         className={`w-2 h-2 rounded-full transition-colors ${
                           index === currentMediaIndex ? 'bg-white' : 'bg-white bg-opacity-50'
                         }`}
