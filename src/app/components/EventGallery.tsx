@@ -55,7 +55,7 @@ const events: Event[] = [
     title: 'Sweet 15 Elegant Celebration',
     date: '',
     guestCount: 80,
-    type: 'Birthday Party',
+    type: 'Quinceañera/Sweet 16',
     media: [
       { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-01.jpg' },
       { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-02.jpg' },
@@ -83,7 +83,28 @@ const events: Event[] = [
   }
 ]
 
-const eventTypes = ['All', 'Wedding', 'Corporate Event', 'Birthday Party', 'Anniversary']
+const eventTypes = [
+  'All', 
+  'Wedding', 
+  'Quinceañera/Sweet 16', 
+  'Corporate Event', 
+  'Birthday Party', 
+  'Anniversary', 
+  'Baby Shower',
+  'Bridal Shower',
+  'Engagement Party',
+  'Graduation Party',
+  'Holiday Party',
+  'Retirement Party',
+  'Memorial Service',
+  'Religious Ceremony',
+  'Networking Event',
+  'Product Launch',
+  'Gala/Fundraiser',
+  'Reunion',
+  'Fashion Show',
+  'Art Exhibition'
+]
 
 export default function EventGallery() {
   const [selectedType, setSelectedType] = useState('All')
@@ -135,30 +156,35 @@ export default function EventGallery() {
   return (
     <div className="max-w-6xl mx-auto">
       {/* Header with Upload Button */}
-      <div className="flex justify-between items-center mb-8">
-        <div className="flex flex-wrap gap-2 justify-center flex-1">
-          {eventTypes.map(type => (
-            <button
-              key={type}
-              onClick={() => setSelectedType(type)}
-              className={`px-4 py-2 rounded-lg transition-colors ${
-                selectedType === type
-                  ? 'bg-yellow-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              {type}
-            </button>
-          ))}
+      <div className="mb-8">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold mb-4">Filter by Event Type:</h3>
+            <div className="flex flex-wrap gap-2">
+              {eventTypes.map(type => (
+                <button
+                  key={type}
+                  onClick={() => setSelectedType(type)}
+                  className={`px-3 py-2 rounded-lg transition-colors text-sm ${
+                    selectedType === type
+                      ? 'bg-yellow-600 text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <button
+            onClick={() => setShowUploadModal(true)}
+            className="bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition-colors flex items-center space-x-2 self-start"
+          >
+            <Upload className="w-4 h-4" />
+            <span>Add Media</span>
+          </button>
         </div>
-        
-        <button
-          onClick={() => setShowUploadModal(true)}
-          className="ml-4 bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition-colors flex items-center space-x-2"
-        >
-          <Upload className="w-4 h-4" />
-          <span>Add Media</span>
-        </button>
       </div>
 
       {/* Events Grid */}
