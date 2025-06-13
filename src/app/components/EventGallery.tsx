@@ -273,6 +273,24 @@ const events: Event[] = [
     ],
     description: 'An elegant and sophisticated baby shower featuring a beautiful blue, white, and silver color palette. This special celebration welcomed the upcoming arrival with stunning balloon arrangements, coordinated table settings, and delicate decorative touches. Events On Charles created a memorable celebration that perfectly honored this joyous milestone with style and grace.',
     featured: true
+  },
+  {
+    id: '14',
+    title: 'Minnie Mouse Birthday Themed Party',
+    date: '',
+    guestCount: 30,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/minniebirthdaythemedparty/minnie-birthday-themed-party-01.jpg' },
+      { type: 'image', url: '/images/gallery/minniebirthdaythemedparty/minnie-birthday-themed-party-02.jpg' },
+      { type: 'image', url: '/images/gallery/minniebirthdaythemedparty/minnie-birthday-themed-party-03.jpg' },
+      { type: 'image', url: '/images/gallery/minniebirthdaythemedparty/minnie-birthday-themed-party-04.jpg' },
+      { type: 'image', url: '/images/gallery/minniebirthdaythemedparty/minnie-birthday-themed-party-05.jpg' },
+      { type: 'image', url: '/images/gallery/minniebirthdaythemedparty/minnie-birthday-themed-party-06.jpg' },
+      { type: 'image', url: '/images/gallery/minniebirthdaythemedparty/minnie-birthday-themed-party-07.jpg' }
+    ],
+    description: 'A magical Minnie Mouse themed birthday party that brought Disney magic to life! This delightful celebration featured adorable Minnie Mouse decorations, themed table settings, and playful elements that created a perfect party atmosphere for young Disney fans. Events On Charles specializes in creating enchanting themed celebrations that make childhood dreams come true.',
+    featured: true
   }
 ]
 
