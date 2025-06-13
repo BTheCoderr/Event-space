@@ -231,7 +231,7 @@
   }
   
   .text-reveal {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -352,8 +352,8 @@
   /* Enhanced Typography */
   .hero-title {
     text-shadow: 
-      0 0 20px rgba(102, 126, 234, 0.5),
-      0 0 40px rgba(102, 126, 234, 0.3),
+      0 0 20px rgba(212, 175, 55, 0.5),
+      0 0 40px rgba(212, 175, 55, 0.3),
       0 4px 8px rgba(0, 0, 0, 0.3);
     letter-spacing: -0.02em;
   }
@@ -399,7 +399,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
   }
   
   /* Black and Gold Theme Enhancements */

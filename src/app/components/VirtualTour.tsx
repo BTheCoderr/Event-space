@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Play, Maximize2, Camera, MapPin, Users, Square } from 'lucide-react'
+import { Maximize2, Camera, MapPin, Users, Square } from 'lucide-react'
 
 interface SpaceLayout {
   id: string
@@ -90,29 +90,50 @@ export default function VirtualTour() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      {/* Main Virtual Tour */}
+      {/* Main Virtual Tour with Interactive Features */}
       <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+        <div className="p-6 mb-6">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">Interactive 360° Virtual Tour</h3>
+          <p className="text-gray-600 mb-6">
+            Take a complete virtual walkthrough of our event space using our interactive 360° tour. 
+            Navigate through different areas, zoom in on details, and get a real feel for the venue.
+          </p>
+        </div>
+
         <div className="relative">
-          <img
-            src={selectedSpace.image}
-            alt={selectedSpace.name}
-            className="w-full h-96 object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-            <button
-              onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
-              className="bg-white text-gray-800 px-6 py-3 rounded-lg flex items-center space-x-2 hover:bg-gray-100 transition-colors"
-            >
-              <Play className="w-5 h-5" />
-              <span>Experience 360° Virtual Tour</span>
-            </button>
+          {/* Embedded 360° Tour */}
+          <div className="relative bg-gray-100 rounded-lg overflow-hidden mx-6" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              src="https://my.matterport.com/show/?m=5Jbu5a8n85j"
+              frameBorder="0"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full"
+              title="360° Virtual Tour"
+            />
           </div>
-          <div className="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-lg">
+          <div className="absolute top-4 right-10 bg-white bg-opacity-90 px-3 py-1 rounded-lg">
             <span className="text-sm font-medium">{selectedSpace.area}</span>
           </div>
         </div>
 
         <div className="p-6">
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            <button
+              onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
+              className="flex-1 bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center space-x-2"
+            >
+              <Maximize2 className="w-5 h-5" />
+              <span>Open in Full Screen</span>
+            </button>
+            <button
+              onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
+              className="flex-1 border-2 border-yellow-600 text-yellow-600 px-6 py-3 rounded-lg hover:bg-yellow-50 transition-colors flex items-center justify-center space-x-2"
+            >
+              <Camera className="w-5 h-5" />
+              <span>Virtual Reality Mode</span>
+            </button>
+          </div>
+
           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">{selectedSpace.name}</h3>
@@ -167,42 +188,6 @@ export default function VirtualTour() {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Embedded 360° Tour */}
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
-        <div className="p-6">
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">Interactive 360° Virtual Tour</h3>
-          <p className="text-gray-600 mb-6">
-            Take a complete virtual walkthrough of our event space using our interactive 360° tour. 
-            Navigate through different areas, zoom in on details, and get a real feel for the venue.
-          </p>
-          <div className="relative bg-gray-100 rounded-lg overflow-hidden" style={{ paddingBottom: '56.25%' }}>
-            <iframe
-              src="https://my.matterport.com/show/?m=5Jbu5a8n85j"
-              frameBorder="0"
-              allowFullScreen
-              className="absolute top-0 left-0 w-full h-full"
-              title="360° Virtual Tour"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <button
-              onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
-              className="flex-1 bg-yellow-600 text-white px-6 py-3 rounded-lg hover:bg-yellow-700 transition-colors flex items-center justify-center space-x-2"
-            >
-              <Maximize2 className="w-5 h-5" />
-              <span>Open in Full Screen</span>
-            </button>
-            <button
-              onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
-              className="flex-1 border-2 border-yellow-600 text-yellow-600 px-6 py-3 rounded-lg hover:bg-yellow-50 transition-colors flex items-center justify-center space-x-2"
-            >
-              <Camera className="w-5 h-5" />
-              <span>Virtual Reality Mode</span>
-            </button>
           </div>
         </div>
       </div>

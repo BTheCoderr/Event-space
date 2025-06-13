@@ -102,7 +102,7 @@ export default function Home() {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="text-yellow-600 mb-4 flex justify-center pulse-glow magnetic-button">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-reveal">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>
             ))}
@@ -215,44 +215,40 @@ export default function Home() {
 
       {/* Chat Box */}
       <ChatBox />
-      
+
       {/* Floating Action Button */}
-      <div className="fixed bottom-6 left-6 z-50">
-        <button 
-          onClick={() => window.open('tel:+14016716758', '_self')}
-          className="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover-scale pulse-glow magnetic-button ripple-effect"
-          title="Call Us Now!"
+      <div className="fixed left-6 bottom-6 flex flex-col space-y-4 z-40">
+        <button
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-yellow-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-yellow-700 transition-colors hover-scale pulse-glow magnetic-button ripple-effect"
         >
-          ��
+          📞
         </button>
+
+        {/* Quick Actions Floating Menu */}
+        <div className="flex flex-col space-y-2">
+          <button
+            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-gray-800 text-yellow-600 w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-gray-700 transition-colors hover-scale magnetic-button ripple-effect"
+          >
+            🖼️
+          </button>
+          <button
+            onClick={() => document.getElementById('spaces')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-gray-800 text-yellow-600 w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-gray-700 transition-colors hover-scale magnetic-button ripple-effect"
+          >
+            🏛️
+          </button>
+          <button
+            onClick={() => document.getElementById('availability')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-gray-800 text-yellow-600 w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-gray-700 transition-colors hover-scale magnetic-button ripple-effect"
+          >
+            📅
+          </button>
+        </div>
       </div>
       
-      {/* Quick Actions Floating Menu */}
-      <div className="fixed bottom-24 left-6 z-40 space-y-3">
-        <button 
-          onClick={() => window.open('mailto:info@eventsoncharles.com', '_self')}
-          className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
-          title="Email Us"
-        >
-          ��
-        </button>
-        <button 
-          onClick={() => window.open('https://wa.me/14016716758', '_blank')}
-          className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
-          title="WhatsApp"
-        >
-          💬
-        </button>
-        <button 
-          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-white text-lg shadow-lg hover-scale magnetic-button ripple-effect"
-          title="Get Quote"
-        >
-          ��
-        </button>
-       </div>
-       
-       <ScrollToTop />
+      <ScrollToTop />
     </div>
   )
 }
