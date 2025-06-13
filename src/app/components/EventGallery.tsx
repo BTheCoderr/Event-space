@@ -105,6 +105,29 @@ const events: Event[] = [
     ],
     description: 'A stunning graduation celebration featuring elegant black and pink decor. This milestone celebration showcased sophisticated styling with balloon arrangements, custom signage, and beautiful table settings. A perfect example of how Events On Charles transforms academic achievements into memorable celebrations.',
     featured: true
+  },
+  {
+    id: '6',
+    title: 'Easter Celebration Party',
+    date: '',
+    guestCount: 45,
+    type: 'Holiday Party',
+    media: [
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-01.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-02.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-03.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-04.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-05.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-06.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-07.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-08.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-09.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-10.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-11.jpg' },
+      { type: 'image', url: '/images/easterparty/easter-celebration-party-12.jpg' }
+    ],
+    description: 'A delightful Easter celebration filled with joy and festive spring decor. This holiday party featured beautiful pastel arrangements, themed decorations, and a warm family atmosphere. Events On Charles transformed the space into a perfect Easter wonderland for this special seasonal gathering.',
+    featured: true
   }
 ]
 
