@@ -57,12 +57,12 @@ const events: Event[] = [
     guestCount: 80,
     type: 'Quinceañera/Sweet 16',
     media: [
-      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-01.jpg' },
-      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-02.jpg' },
-      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-03.jpg' },
-      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-04.jpg' },
-      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-05.jpg' },
-      { type: 'image', url: '/images/sweet15blkandred/sweet15-elegant-celebration-06.jpg' }
+      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-01.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-02.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-03.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-04.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-05.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkandred/sweet15-elegant-celebration-06.jpg' }
     ],
     description: 'An elegant quinceañera celebration featuring luxurious black and gold decor, throne seating, and stunning floral arrangements. A truly magical evening celebrating this milestone birthday with style and sophistication.',
     featured: true
@@ -113,18 +113,18 @@ const events: Event[] = [
     guestCount: 45,
     type: 'Holiday Party',
     media: [
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-01.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-02.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-03.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-04.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-05.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-06.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-07.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-08.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-09.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-10.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-11.jpg' },
-      { type: 'image', url: '/images/easterparty/easter-celebration-party-12.jpg' }
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-01.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-02.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-03.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-04.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-05.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-06.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-07.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-08.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-09.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-10.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-11.jpg' },
+      { type: 'image', url: '/images/gallery/easterparty/easter-celebration-party-12.jpg' }
     ],
     description: 'A delightful Easter celebration filled with joy and festive spring decor. This holiday party featured beautiful pastel arrangements, themed decorations, and a warm family atmosphere. Events On Charles transformed the space into a perfect Easter wonderland for this special seasonal gathering.',
     featured: true
@@ -136,11 +136,11 @@ const events: Event[] = [
     guestCount: 25,
     type: 'Birthday Party',
     media: [
-      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-01.jpg' },
-      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-02.jpg' },
-      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-03.jpg' },
-      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-04.jpg' },
-      { type: 'image', url: '/images/kidsbirthdayparty/kids-birthday-party-fun-05.jpg' }
+      { type: 'image', url: '/images/gallery/kidsbirthdayparty/kids-birthday-party-fun-01.jpg' },
+      { type: 'image', url: '/images/gallery/kidsbirthdayparty/kids-birthday-party-fun-02.jpg' },
+      { type: 'image', url: '/images/gallery/kidsbirthdayparty/kids-birthday-party-fun-03.jpg' },
+      { type: 'image', url: '/images/gallery/kidsbirthdayparty/kids-birthday-party-fun-04.jpg' },
+      { type: 'image', url: '/images/gallery/kidsbirthdayparty/kids-birthday-party-fun-05.jpg' }
     ],
     description: 'A vibrant and joyful kids birthday party filled with laughter and excitement. This colorful celebration featured fun decorations, entertaining activities, and all the elements needed for an unforgettable childhood birthday experience. Events On Charles creates magical moments that children will treasure forever.',
     featured: true
@@ -152,16 +152,16 @@ const events: Event[] = [
     guestCount: 75,
     type: 'Quinceañera/Sweet 16',
     media: [
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-01.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-02.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-03.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-04.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-05.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-06.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-07.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-08.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-09.jpg' },
-      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-10.jpg' }
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-01.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-02.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-03.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-04.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-05.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-06.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-07.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-08.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-09.jpg' },
+      { type: 'image', url: '/images/gallery/sweet15blkgldred/sweet15-gold-red-celebration-10.jpg' }
     ],
     description: 'A sophisticated Sweet 15 celebration featuring stunning black, gold, and red color palette. This quinceañera showcased elegant balloon arrangements, luxurious table settings, and dramatic lighting that created an unforgettable atmosphere. Events On Charles delivered a truly royal celebration befitting this important milestone.',
     featured: true
@@ -173,21 +173,105 @@ const events: Event[] = [
     guestCount: 50,
     type: 'Birthday Party',
     media: [
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-01.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-02.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-03.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-04.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-05.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-06.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-07.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-08.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-09.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-10.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-11.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-12.jpg' },
-      { type: 'image', url: '/images/happybirthdayblkgld/happy-birthday-black-gold-13.jpg' }
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-01.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-02.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-03.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-04.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-05.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-06.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-07.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-08.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-09.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-10.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-11.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-12.jpg' },
+      { type: 'image', url: '/images/gallery/happybirthdayblkgld/happy-birthday-black-gold-13.jpg' }
     ],
     description: 'An sophisticated adult birthday celebration featuring an elegant black and gold theme. This stylish party showcased premium balloon arrangements, luxurious table settings, and refined decorations. Events On Charles created a memorable celebration that perfectly balanced sophistication with festive birthday joy.',
+    featured: true
+  },
+  {
+    id: '10',
+    title: 'Happy 40th Birthday Red & Black Celebration',
+    date: '',
+    guestCount: 65,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/happy40thbirthdayredblk/happy-40th-birthday-redblk-01.jpg' },
+      { type: 'image', url: '/images/gallery/happy40thbirthdayredblk/happy-40th-birthday-redblk-02.jpg' },
+      { type: 'image', url: '/images/gallery/happy40thbirthdayredblk/happy-40th-birthday-redblk-03.jpg' },
+      { type: 'image', url: '/images/gallery/happy40thbirthdayredblk/happy-40th-birthday-redblk-04.jpg' },
+      { type: 'image', url: '/images/gallery/happy40thbirthdayredblk/happy-40th-birthday-redblk-05.jpg' },
+      { type: 'image', url: '/images/gallery/happy40thbirthdayredblk/happy-40th-birthday-redblk-06.jpg' },
+      { type: 'image', url: '/images/gallery/happy40thbirthdayredblk/happy-40th-birthday-redblk-07.jpg' }
+    ],
+    description: 'A spectacular 40th birthday celebration featuring a bold red and black color scheme. This milestone birthday party showcased dramatic balloon arrangements, elegant table settings, and sophisticated decorations. Events On Charles created an unforgettable celebration that perfectly honored this special milestone with style and flair.',
+    featured: true
+  },
+  {
+    id: '11',
+    title: 'Baby Shower White & Pink Elegance',
+    date: '',
+    guestCount: 45,
+    type: 'Baby Shower',
+    media: [
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-01.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-02.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-03.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-04.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-05.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-06.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-07.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-08.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-09.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-10.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartywhitepink/birthday-party-whitepink-11.jpg' }
+    ],
+    description: 'An elegant and sophisticated baby shower featuring a classic white and pink color palette. This beautiful celebration welcomed the upcoming arrival with refined balloon arrangements, pristine table settings, and delicate floral touches. Events On Charles delivered a timeless celebration that combined elegance with joyful anticipation.',
+    featured: true
+  },
+  {
+    id: '12',
+    title: 'Themed Birthday Party Celebration',
+    date: '',
+    guestCount: 40,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-01.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-02.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-03.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-04.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-05.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-06.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-07.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-08.jpg' },
+      { type: 'image', url: '/images/gallery/themedbirthday/themed-birthday-party-09.jpg' }
+    ],
+    description: 'A creative and fun-filled themed birthday party that brought imagination to life. This special celebration featured custom decorations, themed elements, and coordinated styling that perfectly matched the party theme. Events On Charles specializes in creating unique themed celebrations that make every birthday dream come true.',
+    featured: true
+  },
+  {
+    id: '13',
+    title: 'Baby Shower Blue White & Silver Elegance',
+    date: '',
+    guestCount: 35,
+    type: 'Baby Shower',
+    media: [
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-01.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-02.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-03.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-04.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-05.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-06.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-07.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-08.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-09.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-10.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-11.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-12.jpg' },
+      { type: 'image', url: '/images/gallery/babyshowerbluewhitesliver/baby-shower-bluewhitesliver-13.jpg' }
+    ],
+    description: 'An elegant and sophisticated baby shower featuring a beautiful blue, white, and silver color palette. This special celebration welcomed the upcoming arrival with stunning balloon arrangements, coordinated table settings, and delicate decorative touches. Events On Charles created a memorable celebration that perfectly honored this joyous milestone with style and grace.',
     featured: true
   }
 ]
