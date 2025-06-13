@@ -104,7 +104,7 @@ export default function EventGallery() {
             onClick={() => setSelectedType(type)}
             className={`px-4 py-2 rounded-lg transition-colors ${
               selectedType === type
-                ? 'bg-purple-600 text-white'
+                ? 'bg-yellow-600 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -128,7 +128,7 @@ export default function EventGallery() {
                 className="w-full h-48 object-cover"
               />
               {event.featured && (
-                <div className="absolute top-2 left-2 bg-purple-600 text-white px-2 py-1 rounded text-xs font-medium">
+                <div className="absolute top-2 left-2 bg-yellow-600 text-white px-2 py-1 rounded text-xs font-medium">
                   Featured
                 </div>
               )}
@@ -217,14 +217,14 @@ export default function EventGallery() {
             <div className="p-6">
               <div className="grid md:grid-cols-3 gap-4 mb-4">
                 <div className="flex items-center space-x-2">
-                  <Calendar className="w-5 h-5 text-purple-600" />
+                  <Calendar className="w-5 h-5 text-yellow-600" />
                   <span>{new Date(selectedEvent.date).toLocaleDateString()}</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Users className="w-5 h-5 text-purple-600" />
+                  <Users className="w-5 h-5 text-yellow-600" />
                   <span>{selectedEvent.guestCount} guests</span>
                 </div>
-                <span className="inline-block bg-purple-100 text-purple-600 px-3 py-1 rounded font-medium">
+                <span className="inline-block bg-yellow-100 text-yellow-600 px-3 py-1 rounded font-medium">
                   {selectedEvent.type}
                 </span>
               </div>
@@ -232,7 +232,7 @@ export default function EventGallery() {
               <p className="text-gray-600 leading-relaxed">{selectedEvent.description}</p>
               
               <div className="mt-6 pt-4 border-t">
-                <button className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors">
+                <button className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700 transition-colors">
                   Book Similar Event
                 </button>
               </div>

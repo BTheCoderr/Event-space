@@ -5,12 +5,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Elite Event Spaces - Premium Venue Rentals",
-  description: "Discover and book premium event spaces for your special occasions. From intimate gatherings to corporate events, find the perfect venue with our modern amenities and professional service.",
-  keywords: "event space, venue rental, corporate events, weddings, party hall, conference room",
+  title: "Events On Charles - Elegant Event Space in Baltimore",
+  description: "Create unforgettable memories at Events On Charles - your premier event venue on historic Charles Street in Baltimore. Perfect for weddings, celebrations, and corporate events.",
+  keywords: "event space, venue rental, Baltimore events, Charles Street venue, weddings, corporate events, celebrations",
   openGraph: {
-    title: "Elite Event Spaces - Premium Venue Rentals",
-    description: "Discover and book premium event spaces for your special occasions.",
+    title: "Events On Charles - Elegant Event Space in Baltimore",
+    description: "Create unforgettable memories at Events On Charles - your premier event venue on historic Charles Street in Baltimore.",
     type: "website",
   },
 };

@@ -43,11 +43,11 @@ export default function OwnerInfo() {
       <div className="text-center mb-16">
         <h3 className="text-3xl font-bold mb-6">Our Story</h3>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Founded in 2009, Elite Event Spaces began as a dream to create extraordinary venues 
-          where life&apos;s most precious moments unfold. What started as a single event hall has 
-          grown into a premier destination for weddings, corporate events, and celebrations 
-          of all kinds. Our commitment to excellence and personal touch has made us the 
-          preferred choice for thousands of satisfied clients.
+          Events On Charles has been creating magical moments on historic Charles Street 
+          in Baltimore since 2009. Our elegant venue combines timeless charm with modern 
+          amenities, providing the perfect backdrop for weddings, corporate events, and 
+          life&apos;s most precious celebrations. Located in the heart of the city, we&apos;ve 
+          become the preferred choice for those seeking sophistication and excellence.
         </p>
       </div>
 
@@ -55,10 +55,10 @@ export default function OwnerInfo() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
         {companyStats.map((stat, index) => (
           <div key={index} className="text-center">
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <div className="text-purple-600">{stat.icon}</div>
+            <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="text-yellow-600">{stat.icon}</div>
             </div>
-            <div className="text-3xl font-bold text-purple-600 mb-2">{stat.number}</div>
+            <div className="text-3xl font-bold text-yellow-600 mb-2">{stat.number}</div>
             <div className="text-gray-600">{stat.label}</div>
           </div>
         ))}
@@ -121,19 +121,19 @@ export default function OwnerInfo() {
           <h4 className="text-xl font-bold mb-4">Our Values</h4>
           <ul className="space-y-3">
             <li className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+              <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
               <span className="text-gray-700">Excellence in every detail</span>
             </li>
             <li className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+              <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
               <span className="text-gray-700">Personalized service and attention</span>
             </li>
             <li className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+              <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
               <span className="text-gray-700">Creating lasting memories</span>
             </li>
             <li className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+              <div className="w-2 h-2 bg-yellow-600 rounded-full"></div>
               <span className="text-gray-700">Integrity and transparency</span>
             </li>
           </ul>
@@ -141,7 +141,7 @@ export default function OwnerInfo() {
       </div>
 
       {/* Awards & Recognition */}
-      <div className="mt-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg p-8 text-white text-center">
+      <div className="mt-16 bg-gradient-to-r from-yellow-600 to-yellow-700 rounded-lg p-8 text-white text-center">
         <h4 className="text-2xl font-bold mb-6">Awards & Recognition</h4>
         <div className="grid md:grid-cols-3 gap-6">
           <div>
