@@ -291,6 +291,76 @@ const events: Event[] = [
     ],
     description: 'A magical Minnie Mouse themed birthday party that brought Disney magic to life! This delightful celebration featured adorable Minnie Mouse decorations, themed table settings, and playful elements that created a perfect party atmosphere for young Disney fans. Events On Charles specializes in creating enchanting themed celebrations that make childhood dreams come true.',
     featured: true
+  },
+  {
+    id: '15',
+    title: 'Birthday Party Black & Bronze Elegance',
+    date: '',
+    guestCount: 65,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-01.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-02.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-03.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-04.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-05.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-06.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-07.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-08.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-09.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-10.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-11.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-12.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-13.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-14.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartyblkandbronze/birthday-party-blkbronze-15.jpg' }
+    ],
+    description: 'A sophisticated birthday celebration featuring an elegant black and bronze color palette. This stylish party showcased luxurious balloon arrangements, metallic accents, and refined decorations that created a glamorous atmosphere. Events On Charles delivered a memorable celebration that perfectly balanced elegance with festive birthday joy.',
+    featured: true
+  },
+  {
+    id: '16',
+    title: 'Birthday Party Blue White & Gold Elegance',
+    date: '',
+    guestCount: 55,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-01.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-02.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-03.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-04.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-05.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-06.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-07.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-08.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-09.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-10.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-11.jpg' },
+      { type: 'image', url: '/images/gallery/birthdaypartybluewhitegold/birthday-party-bluewhitegold-12.jpg' }
+    ],
+    description: 'A stunning birthday celebration featuring a beautiful blue, white, and gold color scheme. This elegant party showcased sophisticated balloon arrangements, coordinated table settings, and luxurious gold accents that created a regal atmosphere. Events On Charles created a memorable celebration that combined classic elegance with festive birthday spirit.',
+    featured: true
+  },
+  {
+    id: '17',
+    title: 'Halloween Theme Party Celebration',
+    date: '',
+    guestCount: 40,
+    type: 'Holiday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-01.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-02.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-03.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-04.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-05.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-06.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-07.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-08.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-09.jpg' },
+      { type: 'image', url: '/images/gallery/halloweenthemeparty/halloween-theme-party-10.jpg' }
+    ],
+    description: 'A spooktacular Halloween themed party that brought the spirit of the season to life! This festive celebration featured creative Halloween decorations, themed elements, and atmospheric lighting that created the perfect spooky ambiance. Events On Charles specializes in creating memorable seasonal celebrations that capture the magic of every holiday.',
+    featured: true
   }
 ]
 
