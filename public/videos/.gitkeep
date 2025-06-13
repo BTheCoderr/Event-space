@@ -1,0 +1,4 @@
+# This file ensures the videos directory is tracked in git
+# Upload your event videos to this directory
+# Supported formats: MP4, MOV, AVI
+# Recommended: 1080p resolution, under 100MB per file 
