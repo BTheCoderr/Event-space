@@ -80,6 +80,31 @@ const events: Event[] = [
     ],
     description: 'An elegant 50th anniversary celebration with family and friends.',
     featured: false
+  },
+  {
+    id: '5',
+    title: 'Graduation Celebration - Black & Pink',
+    date: '',
+    guestCount: 60,
+    type: 'Graduation Party',
+    media: [
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-01.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-02.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-03.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-04.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-05.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-06.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-07.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-08.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-09.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-10.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-11.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-12.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-13.jpg' },
+      { type: 'image', url: '/images/graduationpartyblkandpink/graduation-celebration-blkpink-14.jpg' }
+    ],
+    description: 'A stunning graduation celebration featuring elegant black and pink decor. This milestone celebration showcased sophisticated styling with balloon arrangements, custom signage, and beautiful table settings. A perfect example of how Events On Charles transforms academic achievements into memorable celebrations.',
+    featured: true
   }
 ]
 
