@@ -52,18 +52,19 @@ const events: Event[] = [
   },
   {
     id: '3',
-    title: 'Emma\'s Sweet 16',
+    title: 'Sweet 15 Elegant Celebration',
     date: '2024-03-09',
     guestCount: 80,
     type: 'Birthday Party',
     media: [
-      { type: 'image', url: 'https://picsum.photos/400/300?random=16' },
-      { type: 'image', url: 'https://picsum.photos/400/300?random=17' },
-      { type: 'video', url: '/videos/party-sample.mp4', thumbnail: 'https://picsum.photos/400/300?random=23' },
-      { type: 'image', url: 'https://picsum.photos/400/300?random=18' },
-      { type: 'image', url: 'https://picsum.photos/400/300?random=19' }
+      { type: 'image', url: '/images/sweet15-elegant-celebration-01.jpg' },
+      { type: 'image', url: '/images/sweet15-elegant-celebration-02.jpg' },
+      { type: 'image', url: '/images/sweet15-elegant-celebration-03.jpg' },
+      { type: 'image', url: '/images/sweet15-elegant-celebration-04.jpg' },
+      { type: 'image', url: '/images/sweet15-elegant-celebration-05.jpg' },
+      { type: 'image', url: '/images/sweet15-elegant-celebration-06.jpg' }
     ],
-    description: 'A vibrant and fun celebration with custom decorations and entertainment.',
+    description: 'An elegant quinceañera celebration featuring luxurious black and gold decor, throne seating, and stunning floral arrangements. A truly magical evening celebrating this milestone birthday with style and sophistication.',
     featured: true
   },
   {
