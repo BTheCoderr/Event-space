@@ -389,6 +389,44 @@ const events: Event[] = [
     ],
     description: 'An adorable animal themed baby shower that brought the wild kingdom to life! This charming celebration featured cute animal decorations, safari-inspired elements, and playful touches that created a perfect jungle adventure atmosphere. Events On Charles created a memorable celebration that perfectly captured the joy and excitement of welcoming a new little one.',
     featured: true
+  },
+  {
+    id: '19',
+    title: 'Race Car Theme Kids Birthday Party',
+    date: '',
+    guestCount: 25,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-01.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-02.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-03.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-04.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-05.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-06.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-07.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-08.jpg' },
+      { type: 'image', url: '/images/gallery/racecarthemekidsbirthday/racecar-theme-kids-birthday-09.jpg' }
+    ],
+    description: 'A high-speed race car themed birthday party that brought the excitement of the racetrack to life! This thrilling celebration featured racing decorations, checkered flag elements, and automotive-inspired touches that created the perfect speedway atmosphere. Events On Charles delivered an action-packed celebration that had young racing fans revving with excitement.',
+    featured: true
+  },
+  {
+    id: '20',
+    title: 'Birthday Party Celebration',
+    date: '',
+    guestCount: 45,
+    type: 'Birthday Party',
+    media: [
+      { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-01.jpg' },
+      { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-02.jpg' },
+      { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-03.jpg' },
+      { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-04.jpg' },
+      { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-05.jpg' },
+      { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-06.jpg' },
+      { type: 'image', url: '/images/gallery/birthdayparty/birthday-party-celebration-07.jpg' }
+    ],
+    description: 'A classic birthday party celebration that captured the joy and excitement of a special day! This festive gathering featured beautiful decorations, coordinated styling, and all the elements needed for a memorable birthday experience. Events On Charles created a perfect celebration that brought smiles and happiness to everyone in attendance.',
+    featured: true
   }
 ]
 
