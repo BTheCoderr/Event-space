@@ -144,6 +144,27 @@ const events: Event[] = [
     ],
     description: 'A vibrant and joyful kids birthday party filled with laughter and excitement. This colorful celebration featured fun decorations, entertaining activities, and all the elements needed for an unforgettable childhood birthday experience. Events On Charles creates magical moments that children will treasure forever.',
     featured: true
+  },
+  {
+    id: '8',
+    title: 'Sweet 15 Gold & Red Elegance',
+    date: '',
+    guestCount: 75,
+    type: 'Quinceañera/Sweet 16',
+    media: [
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-01.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-02.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-03.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-04.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-05.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-06.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-07.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-08.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-09.jpg' },
+      { type: 'image', url: '/images/sweet15blkgldred/sweet15-gold-red-celebration-10.jpg' }
+    ],
+    description: 'A sophisticated Sweet 15 celebration featuring stunning black, gold, and red color palette. This quinceañera showcased elegant balloon arrangements, luxurious table settings, and dramatic lighting that created an unforgettable atmosphere. Events On Charles delivered a truly royal celebration befitting this important milestone.',
+    featured: true
   }
 ]
 
