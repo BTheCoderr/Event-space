@@ -40,26 +40,45 @@ export default function ContactForm() {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitted(true)
-    setIsSubmitting(false)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        eventType: '',
-        eventDate: '',
-        guestCount: '',
-        message: '',
-        marketingConsent: false
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
-    }, 3000)
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      const result = await response.json()
+      console.log('Email sent successfully:', result)
+      
+      setIsSubmitted(true)
+      setIsSubmitting(false)
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          eventType: '',
+          eventDate: '',
+          guestCount: '',
+          message: '',
+          marketingConsent: false
+        })
+      }, 5000)
+    } catch (error) {
+      console.error('Error sending email:', error)
+      setIsSubmitting(false)
+      // You might want to show an error message to the user here
+      alert('There was an error sending your message. Please try again or call us directly at (401) 671-6758.')
+    }
   }
 
   if (isSubmitted) {

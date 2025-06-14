@@ -13,6 +13,7 @@ interface Particle {
 
 export default function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const particlesRef = useRef<Particle[]>([])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -22,7 +23,6 @@ export default function ParticleBackground() {
     if (!ctx) return
 
     let animationFrameId: number
-    const particles: Particle[] = []
     const particleCount = 50
 
     // Set canvas size
@@ -31,24 +31,26 @@ export default function ParticleBackground() {
       canvas.height = window.innerHeight
     }
 
-    // Initialize particles
+    // Initialize particles with consistent seed
     const initParticles = () => {
-      particles.length = 0
+      particlesRef.current = []
       for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 3 + 1,
-          speedX: (Math.random() - 0.5) * 0.5,
-          speedY: (Math.random() - 0.5) * 0.5,
-          opacity: Math.random() * 0.5 + 0.2
+        // Use a more predictable random seed based on index
+        const seed = i / particleCount
+        particlesRef.current.push({
+          x: (seed * 0.7 + 0.15) * canvas.width,
+          y: (((i * 17) % 100) / 100) * canvas.height,
+          size: 1 + (i % 3),
+          speedX: ((i % 5) - 2) * 0.1,
+          speedY: ((i % 7) - 3) * 0.1,
+          opacity: 0.3 + ((i % 5) * 0.1)
         })
       }
     }
 
     // Update particles
     const updateParticles = () => {
-      particles.forEach(particle => {
+      particlesRef.current.forEach(particle => {
         particle.x += particle.speedX
         particle.y += particle.speedY
 
@@ -59,7 +61,7 @@ export default function ParticleBackground() {
         if (particle.y < 0) particle.y = canvas.height
 
         // Pulse opacity
-        particle.opacity += (Math.random() - 0.5) * 0.02
+        particle.opacity += (Math.sin(Date.now() * 0.001 + particle.x * 0.01) - 0.5) * 0.01
         particle.opacity = Math.max(0.1, Math.min(0.8, particle.opacity))
       })
     }
@@ -68,7 +70,7 @@ export default function ParticleBackground() {
     const drawParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
-      particles.forEach(particle => {
+      particlesRef.current.forEach(particle => {
         ctx.save()
         ctx.globalAlpha = particle.opacity
         ctx.fillStyle = '#ffffff'
@@ -81,8 +83,8 @@ export default function ParticleBackground() {
       })
 
       // Draw connections
-      particles.forEach((particle, i) => {
-        particles.slice(i + 1).forEach(otherParticle => {
+      particlesRef.current.forEach((particle, i) => {
+        particlesRef.current.slice(i + 1).forEach(otherParticle => {
           const distance = Math.sqrt(
             Math.pow(particle.x - otherParticle.x, 2) + 
             Math.pow(particle.y - otherParticle.y, 2)
@@ -116,7 +118,7 @@ export default function ParticleBackground() {
       const mouseX = e.clientX - rect.left
       const mouseY = e.clientY - rect.top
 
-      particles.forEach(particle => {
+      particlesRef.current.forEach(particle => {
         const distance = Math.sqrt(
           Math.pow(particle.x - mouseX, 2) + 
           Math.pow(particle.y - mouseY, 2)
@@ -131,16 +133,16 @@ export default function ParticleBackground() {
       })
     }
 
-    // Initialize
+    // Setup
     resizeCanvas()
     initParticles()
     animate()
 
-    // Event listeners
     window.addEventListener('resize', () => {
       resizeCanvas()
       initParticles()
     })
+
     canvas.addEventListener('mousemove', handleMouseMove)
 
     return () => {
@@ -153,8 +155,8 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 1 }}
+      className="fixed inset-0 pointer-events-none z-0"
+      style={{ background: 'transparent' }}
     />
   )
 } 

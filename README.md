@@ -1,112 +1,157 @@
-# 🏰 Elite Event Spaces - Ultra-Modern Event Venue Website
+# Events On Charles - Event Space Rental Website
 
-A stunning, interactive event space rental website built with Next.js 15, featuring cutting-edge animations, 360° virtual tours, and modern UI/UX design.
+A modern, comprehensive event space rental website built with Next.js 15, TypeScript, and Tailwind CSS. This website showcases a premier event venue in Providence, Rhode Island with cutting-edge features and ultra-modern design.
 
 ## 🌟 Features
 
-### 🎯 **Interactive Elements**
-- **Particle Background System** - Mouse-responsive floating particles with dynamic connections
-- **360° Virtual Tour Integration** - Embedded Matterport tour with full-screen viewing
-- **Magnetic Button Effects** - Interactive buttons that respond to mouse proximity
-- **Ripple Click Animations** - Visual feedback on all interactive elements
-- **3D Card Morphing** - Cards that transform in 3D space on hover
+### Core Functionality
+- **Interactive Chat Box** - AI-powered FAQ responses for instant customer support
+- **360° Virtual Tour** - Immersive Matterport integration for virtual venue exploration
+- **Availability Calendar** - Real-time booking calendar with date selection
+- **Event Gallery** - Showcase of past events with photo/video filtering
+- **Inventory Showcase** - Complete venue equipment and furniture catalog
+- **Contact Forms** - Multiple contact options with form validation
+- **Owner Information** - Professional team profiles and company story
+- **Rental Contracts** - Digital contract viewing and agreement system
 
-### 🎨 **Modern Design**
-- **Glass Morphism** - Frosted glass effects throughout the interface
-- **Gradient Animations** - Smoothly shifting multi-color backgrounds
-- **Advanced Typography** - Enhanced text shadows and readability
-- **Responsive Layout** - Perfect experience on all devices
-- **Scroll Indicators** - Animated progress bar showing scroll position
-
-### 📱 **User Experience**
+### Modern UI/UX Features
+- **Particle Animation System** - Interactive floating particles with mouse responsiveness
+- **Glass Morphism Effects** - Frosted glass navigation and modern transparency effects
+- **3D Card Morphing** - Cards with hover rotations and depth transformations
+- **Magnetic Button Effects** - Buttons that respond to mouse proximity
+- **Ripple Click Animations** - Satisfying click feedback on all interactive elements
+- **Advanced Gradient Animations** - Dynamic color transitions and glow effects
 - **Floating Action Buttons** - Quick access to call, email, WhatsApp, and quotes
-- **Smooth Scroll Navigation** - Seamless section transitions
-- **Smart Chat System** - Interactive FAQ with intelligent responses
-- **Scroll-to-Top Button** - Appears dynamically when scrolling
-- **Staggered Animations** - Content appears with coordinated timing
+- **Scroll Progress Indicator** - Visual progress bar for page navigation
+- **Smooth Scroll-to-Top** - Elegant return-to-top functionality
 
-### 🏢 **Business Features**
-- **Event Gallery** - Showcase past events with filtering and lightbox
-- **Inventory Management** - Complete rental catalog with shopping cart
-- **Availability Calendar** - Interactive booking system
-- **Virtual Tour** - Multiple space layouts and 3D planning
-- **Contact System** - Multiple contact forms and lead capture
-- **Owner Profiles** - Team information and credentials
+## 🚀 Quick Start
 
-## 🚀 **Technology Stack**
+```bash
+# Clone the repository
+git clone https://github.com/BTheCoderr/Event-space.git
+cd eventoncharles
 
-- **Framework**: Next.js 15 with TypeScript
-- **Styling**: Tailwind CSS 3.4 with custom animations
-- **Animations**: Framer Motion + Custom CSS
-- **Icons**: Lucide React
-- **Forms**: React Hook Form with Zod validation
-- **Calendar**: React Calendar
-- **Deployment**: Netlify with optimized build
+# Install dependencies
+npm install
 
-## 🎯 **Key Animations & Effects**
+# Run development server
+npm run dev
 
-```css
-✨ Particle System - Interactive floating particles
-🌊 Gradient Shifts - Animated background gradients  
-💫 Magnetic Buttons - Mouse-following interactions
-🎭 3D Transforms - Card rotations and scaling
-💧 Ripple Effects - Click wave animations
-🌟 Glow Effects - Pulsing neon highlights
-🚀 Smooth Scrolling - Buttery smooth navigation
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-## 🔧 **Getting Started**
+## 🛠️ Tech Stack
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/BTheCoderr/Event-space.git
-   cd Event-space
-   ```
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v3.4.15
+- **UI Components**: Radix UI primitives
+- **Icons**: Lucide React
+- **Form Handling**: React Hook Form with Zod validation
+- **Animations**: Framer Motion + Custom CSS animations
+- **Calendar**: React Calendar
+- **Development**: ESLint, Turbopack
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## 📁 Project Structure
 
-3. **Run development server**
-   ```bash
-   npm run dev
-   ```
+```
+eventoncharles/
+├── src/
+│   └── app/
+│       ├── components/          # React components
+│       │   ├── AvailabilityCalendar.tsx
+│       │   ├── ChatBox.tsx
+│       │   ├── ContactForm.tsx
+│       │   ├── EventGallery.tsx
+│       │   ├── InventoryShowcase.tsx
+│       │   ├── OwnerInfo.tsx
+│       │   ├── ParticleBackground.tsx
+│       │   ├── RentalContract.tsx
+│       │   ├── ScrollIndicator.tsx
+│       │   ├── ScrollToTop.tsx
+│       │   └── VirtualTour.tsx
+│       ├── globals.css          # Global styles and animations
+│       ├── layout.tsx          # Root layout
+│       └── page.tsx            # Homepage
+├── public/                     # Static assets
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+├── next.config.ts
+└── netlify.toml               # Deployment configuration
+```
 
-4. **Open your browser**
-   ```
-   http://localhost:3000
-   ```
+## 🎨 Design Features
 
-## 🌐 **Live Demo**
+### Color Scheme
+- **Primary**: Gold/Yellow (#d4af37, #ffd700)
+- **Secondary**: Black (#000000, #1a1a1a)
+- **Accent**: White with transparency effects
+- **Gradients**: Dynamic gold-to-black transitions
 
-Visit the live website: [Your Netlify URL will go here]
+### Animation System
+- **Particle Background**: 50 interactive floating particles
+- **Hover Effects**: 3D transformations and magnetic interactions
+- **Loading States**: Skeleton loaders and smooth transitions
+- **Page Transitions**: Smooth scroll and section animations
 
-## 📸 **Screenshots**
+## 🌐 Deployment
 
-*Add screenshots of your website here once deployed*
+The website is configured for deployment on Netlify with optimized build settings:
 
-## 🎨 **Design Philosophy**
+```toml
+[build]
+  command = "npm run build"
+  publish = "out"
 
-This website embodies 2024's cutting-edge web design trends:
-- **Glassmorphism** for depth and elegance
-- **Micro-interactions** for enhanced user engagement  
-- **3D Elements** for modern visual appeal
-- **Particle Systems** for dynamic backgrounds
-- **Advanced Animations** for smooth user experience
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+```
 
-## 🚀 **Performance Features**
+## 📱 Mobile Responsive
 
-- ⚡ **Fast Loading** - Optimized Next.js build
-- 📱 **Mobile First** - Responsive design principles
-- 🔍 **SEO Optimized** - Meta tags and structured data
-- 🎯 **Interactive** - Engaging user interactions
-- 💫 **Smooth Animations** - 60fps performance target
+Fully responsive design with:
+- Mobile-first approach
+- Touch-friendly interactions
+- Optimized performance on all devices
+- Progressive Web App capabilities
 
-## 🛠 **Built With Love By**
+## 🔧 Configuration
 
-**BTheCoderr** - Creating exceptional digital experiences
+### Environment Variables
+Create a `.env.local` file for any environment-specific configurations:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+### Matterport Integration
+The virtual tour uses Matterport's embed system. Update the tour URL in `VirtualTour.tsx`:
+
+```typescript
+src="https://discover.matterport.com/space/YOUR_SPACE_ID"
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is private and proprietary. All rights reserved.
 
 ---
 
-*This project showcases modern web development techniques with a focus on user experience, visual appeal, and business functionality.*
+**Events On Charles** - Creating magical moments in Providence, Rhode Island since 2009.

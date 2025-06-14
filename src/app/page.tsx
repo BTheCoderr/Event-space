@@ -1,6 +1,7 @@
 'use client'
 
-import { MapPin, Users, Star, Phone, Mail } from 'lucide-react'
+import { useState } from 'react'
+import { MapPin, Users, Star, Phone, Mail, Menu, X } from 'lucide-react'
 import ChatBox from './components/ChatBox'
 import AvailabilityCalendar from './components/AvailabilityCalendar'
 import VirtualTour from './components/VirtualTour'
@@ -13,6 +14,15 @@ import ScrollIndicator from './components/ScrollIndicator'
 import ScrollToTop from './components/ScrollToTop'
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -27,6 +37,8 @@ export default function Home() {
               </div>
               <span className="text-xl font-bold gradient-text-gold">Events On Charles</span>
             </div>
+            
+            {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#home" className="text-gray-700 hover:text-yellow-600 transition-colors">Home</a>
               <a href="#gallery" className="text-gray-700 hover:text-yellow-600 transition-colors">Gallery</a>
@@ -41,7 +53,74 @@ export default function Home() {
                 Book Now
               </button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="md:hidden text-gray-700 hover:text-yellow-600 transition-colors p-2"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-gray-200/20">
+              <div className="flex flex-col space-y-4 pt-4">
+                <a 
+                  href="#home" 
+                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  onClick={closeMobileMenu}
+                >
+                  Home
+                </a>
+                <a 
+                  href="#gallery" 
+                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  onClick={closeMobileMenu}
+                >
+                  Gallery
+                </a>
+                <a 
+                  href="#spaces" 
+                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  onClick={closeMobileMenu}
+                >
+                  Spaces
+                </a>
+                <a 
+                  href="#inventory" 
+                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  onClick={closeMobileMenu}
+                >
+                  Inventory
+                </a>
+                <a 
+                  href="#availability" 
+                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  onClick={closeMobileMenu}
+                >
+                  Availability
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  onClick={closeMobileMenu}
+                >
+                  Contact
+                </a>
+                <button 
+                  onClick={() => {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                    closeMobileMenu()
+                  }}
+                  className="modern-button w-full mt-2"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
