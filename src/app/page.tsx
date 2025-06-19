@@ -28,36 +28,39 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <ScrollIndicator />
       {/* Navigation */}
-      <nav className="fixed top-0 w-full frosted-glass z-50 shadow-xl">
-        <div className="container mx-auto px-4 py-4">
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-lg border-b border-gray-200">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center shine-effect">
-                <span className="text-black font-bold text-lg">EC</span>
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-600 to-amber-700 rounded-lg flex items-center justify-center shadow-md">
+                <span className="text-white font-bold text-xl">EC</span>
               </div>
-              <span className="text-xl font-bold gradient-text-gold">Events On Charles</span>
+              <div>
+                <span className="text-2xl font-bold text-gray-800">Events On Charles</span>
+                <div className="text-xs text-amber-600 font-medium">Professional Event Venue</div>
+              </div>
             </div>
             
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-yellow-600 transition-colors">Home</a>
-              <a href="#gallery" className="text-gray-700 hover:text-yellow-600 transition-colors">Gallery</a>
-              <a href="#spaces" className="text-gray-700 hover:text-yellow-600 transition-colors">Spaces</a>
-              <a href="#inventory" className="text-gray-700 hover:text-yellow-600 transition-colors">Inventory</a>
-              <a href="#availability" className="text-gray-700 hover:text-yellow-600 transition-colors">Availability</a>
-              <a href="#contact" className="text-gray-700 hover:text-yellow-600 transition-colors">Contact</a>
+            <div className="hidden md:flex items-center space-x-1">
+              <a href="#home" className="px-4 py-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all font-medium">Home</a>
+              <a href="#gallery" className="px-4 py-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all font-medium">Gallery</a>
+              <a href="#spaces" className="px-4 py-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all font-medium">Spaces</a>
+              <a href="#inventory" className="px-4 py-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all font-medium">Inventory</a>
+              <a href="#availability" className="px-4 py-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all font-medium">Availability</a>
+              <a href="#contact" className="px-4 py-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all font-medium">Contact</a>
               <button 
                 onClick={() => window.location.href = '/booking'}
-                className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+                className="ml-4 bg-amber-600 hover:bg-amber-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"
               >
-                Book Now
+                Book Event
               </button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden text-gray-700 hover:text-yellow-600 transition-colors p-2"
+              className="md:hidden bg-amber-100 text-amber-700 hover:bg-amber-200 transition-colors p-2 rounded-lg"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -65,46 +68,46 @@ export default function Home() {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-gray-200/20">
-              <div className="flex flex-col space-y-4 pt-4">
+            <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
+              <div className="flex flex-col space-y-2 pt-4">
                 <a 
                   href="#home" 
-                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  className="text-gray-700 hover:text-amber-600 hover:bg-amber-50 transition-colors py-3 px-4 rounded-lg font-medium"
                   onClick={closeMobileMenu}
                 >
                   Home
                 </a>
                 <a 
                   href="#gallery" 
-                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  className="text-gray-700 hover:text-amber-600 hover:bg-amber-50 transition-colors py-3 px-4 rounded-lg font-medium"
                   onClick={closeMobileMenu}
                 >
                   Gallery
                 </a>
                 <a 
                   href="#spaces" 
-                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  className="text-gray-700 hover:text-amber-600 hover:bg-amber-50 transition-colors py-3 px-4 rounded-lg font-medium"
                   onClick={closeMobileMenu}
                 >
                   Spaces
                 </a>
                 <a 
                   href="#inventory" 
-                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  className="text-gray-700 hover:text-amber-600 hover:bg-amber-50 transition-colors py-3 px-4 rounded-lg font-medium"
                   onClick={closeMobileMenu}
                 >
                   Inventory
                 </a>
                 <a 
                   href="#availability" 
-                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  className="text-gray-700 hover:text-amber-600 hover:bg-amber-50 transition-colors py-3 px-4 rounded-lg font-medium"
                   onClick={closeMobileMenu}
                 >
                   Availability
                 </a>
                 <a 
                   href="#contact" 
-                  className="text-gray-700 hover:text-yellow-600 transition-colors py-2"
+                  className="text-gray-700 hover:text-amber-600 hover:bg-amber-50 transition-colors py-3 px-4 rounded-lg font-medium"
                   onClick={closeMobileMenu}
                 >
                   Contact
@@ -114,9 +117,9 @@ export default function Home() {
                     window.location.href = '/booking'
                     closeMobileMenu()
                   }}
-                  className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors w-full mt-2"
+                  className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors w-full mt-4 shadow-md"
                 >
-                  Book Now
+                  Book Event
                 </button>
               </div>
             </div>
@@ -125,68 +128,107 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="bg-gradient-to-br from-gray-900 via-gray-800 to-yellow-900 relative min-h-screen flex items-center justify-center">
-        <div className="container mx-auto px-4 relative z-10 pt-24">
-          <div className="text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              Events On Charles
-            </h1>
-            <div className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-              Professional event venue in historic Providence, Rhode Island. Specializing in weddings, corporate events, and celebrations with exceptional service and attention to detail.
+      <section id="home" className="relative min-h-screen bg-white">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-white to-amber-100"></div>
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
+        
+        <div className="container mx-auto px-4 relative z-10 pt-32 pb-20">
+          <div className="max-w-6xl mx-auto">
+            {/* Main Content */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <MapPin className="w-4 h-4 mr-2" />
+                Historic Charles Street, Providence, RI
+              </div>
+              
+              <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-6 leading-tight">
+                Events On
+                <span className="block text-amber-600">Charles</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                Where sophistication meets celebration. Our premium venue offers an elegant backdrop for your most important moments, from intimate gatherings to grand celebrations.
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                <button 
+                  onClick={() => window.location.href = '/booking'}
+                  className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  Start Your Booking
+                </button>
+                <button 
+                  onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
+                  className="border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  Take Virtual Tour
+                </button>
+                <button 
+                  onClick={() => document.getElementById('availability')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  Check Availability
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button 
-                onClick={() => window.location.href = '/booking'}
-                className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
-              >
-                Book Your Event
-              </button>
-              <button 
-                onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-12 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
-              >
-                Virtual Tour
-              </button>
-              <button 
-                onClick={() => document.getElementById('availability')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white px-12 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
-              >
-                View Availability
-              </button>
+            
+            {/* Stats Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                <div className="text-3xl font-bold text-amber-600 mb-2">500+</div>
+                <div className="text-gray-600 font-medium">Events Hosted</div>
+              </div>
+              <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                <div className="text-3xl font-bold text-amber-600 mb-2">15+</div>
+                <div className="text-gray-600 font-medium">Years Experience</div>
+              </div>
+              <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                <div className="text-3xl font-bold text-amber-600 mb-2">200</div>
+                <div className="text-gray-600 font-medium">Max Capacity</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Why Choose Events On Charles?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Why Choose Events On Charles?</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Experience the difference of working with Providence's premier event venue</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                icon: <MapPin className="w-8 h-8" />,
-                title: "Charles Street Location",
-                description: "Conveniently located on historic Charles Street in Providence, RI with elegant surroundings and easy accessibility."
+                icon: <MapPin className="w-10 h-10" />,
+                title: "Prime Location",
+                description: "Situated on historic Charles Street in the heart of Providence, offering both charm and convenience for you and your guests."
               },
               {
-                icon: <Users className="w-8 h-8" />,
-                title: "Intimate & Grand Events",
-                description: "Perfect for both intimate celebrations and larger gatherings, with flexible space configurations."
+                icon: <Users className="w-10 h-10" />,
+                title: "Flexible Capacity",
+                description: "From intimate gatherings of 20 to grand celebrations of 200, our versatile space adapts to your vision."
               },
               {
-                icon: <Star className="w-8 h-8" />,
-                title: "White-Glove Service",
-                description: "Our experienced team provides personalized attention to make your event truly exceptional."
+                icon: <Star className="w-10 h-10" />,
+                title: "Full-Service Excellence",
+                description: "Our dedicated team handles every detail, from setup to cleanup, ensuring your event exceeds expectations."
               }
             ].map((feature, index) => (
               <div 
                 key={index} 
-                className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                className="group text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-200"
               >
-                <div className="text-yellow-600 mb-4 flex justify-center">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-800">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl mb-6 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -303,14 +345,14 @@ export default function Home() {
       <div className="fixed left-6 bottom-6 flex flex-col space-y-3 z-30">
         <button
           onClick={() => window.location.href = '/booking'}
-          className="bg-yellow-600 text-white w-14 h-14 rounded-lg flex items-center justify-center shadow-lg hover:bg-yellow-700 transition-colors"
+          className="bg-amber-600 text-white w-14 h-14 rounded-xl flex items-center justify-center shadow-lg hover:bg-amber-700 transition-all hover:shadow-xl transform hover:-translate-y-1"
           title="Book Event"
         >
           <Phone className="w-5 h-5" />
         </button>
         <button
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-gray-800 text-white w-14 h-14 rounded-lg flex items-center justify-center shadow-lg hover:bg-gray-700 transition-colors"
+          className="bg-white text-amber-600 border-2 border-amber-600 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg hover:bg-amber-600 hover:text-white transition-all hover:shadow-xl transform hover:-translate-y-1"
           title="Contact Us"
         >
           <Mail className="w-5 h-5" />
