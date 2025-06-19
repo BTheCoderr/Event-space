@@ -16,15 +16,57 @@ const transporter = nodemailer.createTransport({
   debug: true, // Enable debug logging
 })
 
+// Simple rate limiting
+const rateLimitMap = new Map<string, number[]>()
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now()
+  const windowStart = now - 60000 // 1 minute window
+  
+  const requestTimestamps = rateLimitMap.get(ip) || []
+  const recentRequests = requestTimestamps.filter(timestamp => timestamp > windowStart)
+  
+  if (recentRequests.length >= 5) { // Max 5 requests per minute
+    return false
+  }
+  
+  rateLimitMap.set(ip, [...recentRequests, now])
+  return true
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const formData = await request.json()
-    const { name, email, phone, eventType, eventDate, guestCount, message, marketingConsent } = formData
-
-    // Validation
-    if (!name || !email) {
+    // Rate limiting
+    const ip = request.headers.get('x-forwarded-for') || 
+               request.headers.get('x-real-ip') || 
+               'anonymous'
+    if (!checkRateLimit(ip)) {
+      console.log(`Rate limit exceeded for IP: ${ip}`)
       return NextResponse.json(
-        { error: 'Name and email are required' },
+        { error: 'Too many requests. Please try again later.' }, 
+        { status: 429 }
+      )
+    }
+
+    // Log request
+    console.log(`${new Date().toISOString()} - Contact form submission from IP: ${ip}`)
+
+    const body = await request.json()
+    const { name, email, phone, eventType, eventDate, guestCount, message, marketingConsent } = body
+
+    // Input validation
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Name, email, and message are required' }, 
+        { status: 400 }
+      )
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email format' }, 
         { status: 400 }
       )
     }
@@ -61,7 +103,7 @@ export async function POST(request: NextRequest) {
     // Send notification email to business
     const businessEmailResult = await transporter.sendMail({
       from: `"Website Contact" <${process.env.ZOHO_EMAIL}>`,
-      to: 'support@eventsoncharles.com',
+      to: process.env.ZOHO_EMAIL,
       subject: `New Event Inquiry from ${name}`,
       html: businessEmailHtml,
     })

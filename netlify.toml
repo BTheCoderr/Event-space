@@ -15,6 +15,9 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' js.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: fonts.gstatic.com; connect-src 'self' api.stripe.com *.zoho.com; frame-src js.stripe.com;"
 
 [[headers]]
   for = "/api/*"
@@ -34,4 +37,16 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+
+[[redirects]]
+  from = "http://eventsoncharles.com/*"
+  to = "https://eventsoncharles.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.eventsoncharles.com/*"
+  to = "https://eventsoncharles.com/:splat"
+  status = 301
+  force = true 

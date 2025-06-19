@@ -9,7 +9,7 @@ import InventoryShowcase from './components/InventoryShowcase'
 import ContactForm from './components/ContactForm'
 import EventGallery from './components/EventGallery'
 import OwnerInfo from './components/OwnerInfo'
-import ParticleBackground from './components/ParticleBackground'
+
 import ScrollIndicator from './components/ScrollIndicator'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -47,8 +47,8 @@ export default function Home() {
               <a href="#availability" className="text-gray-700 hover:text-yellow-600 transition-colors">Availability</a>
               <a href="#contact" className="text-gray-700 hover:text-yellow-600 transition-colors">Contact</a>
               <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="modern-button"
+                onClick={() => window.location.href = '/booking'}
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
               >
                 Book Now
               </button>
@@ -111,10 +111,10 @@ export default function Home() {
                 </a>
                 <button 
                   onClick={() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                    window.location.href = '/booking'
                     closeMobileMenu()
                   }}
-                  className="modern-button w-full mt-2"
+                  className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors w-full mt-2"
                 >
                   Book Now
                 </button>
@@ -125,28 +125,33 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="gradient-bg relative min-h-screen flex items-center justify-center">
-        <ParticleBackground />
+      <section id="home" className="bg-gradient-to-br from-gray-900 via-gray-800 to-yellow-900 relative min-h-screen flex items-center justify-center">
         <div className="container mx-auto px-4 relative z-10 pt-24">
           <div className="text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 floating-animation hero-title leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               Events On Charles
             </h1>
-            <div className="hero-subtitle text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-              Where your most treasured moments come to life. Our elegant event space provides the perfect setting for weddings, celebrations, and corporate gatherings in historic Providence, Rhode Island.
+            <div className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+              Professional event venue in historic Providence, Rhode Island. Specializing in weddings, corporate events, and celebrations with exceptional service and attention to detail.
             </div>
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <button 
+                onClick={() => window.location.href = '/booking'}
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
+              >
+                Book Your Event
+              </button>
               <button 
                 onClick={() => window.open('https://discover.matterport.com/space/5Jbu5a8n85j', '_blank')}
-                className="glass-effect text-white px-12 py-6 rounded-2xl font-bold text-lg hover-scale pulse-glow ripple-effect magnetic-button shadow-2xl"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-12 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
               >
-                🌟 360° Virtual Tour
+                Virtual Tour
               </button>
               <button 
                 onClick={() => document.getElementById('availability')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-2 border-white/30 frosted-glass text-white px-12 py-6 rounded-2xl font-bold text-lg hover-scale ripple-effect magnetic-button shadow-2xl"
+                className="border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white px-12 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
               >
-                📅 View Availability
+                View Availability
               </button>
             </div>
           </div>
@@ -177,10 +182,9 @@ export default function Home() {
             ].map((feature, index) => (
               <div 
                 key={index} 
-                className="text-center p-6 modern-card morphing-card ripple-effect stagger-animation"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
               >
-                <div className="text-yellow-600 mb-4 flex justify-center pulse-glow magnetic-button">{feature.icon}</div>
+                <div className="text-yellow-600 mb-4 flex justify-center">{feature.icon}</div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>
@@ -295,36 +299,22 @@ export default function Home() {
       {/* Chat Box */}
       <ChatBox />
 
-      {/* Floating Action Button */}
-      <div className="fixed left-6 bottom-6 flex flex-col space-y-4 z-40">
+      {/* Professional Quick Actions */}
+      <div className="fixed left-6 bottom-6 flex flex-col space-y-3 z-30">
+        <button
+          onClick={() => window.location.href = '/booking'}
+          className="bg-yellow-600 text-white w-14 h-14 rounded-lg flex items-center justify-center shadow-lg hover:bg-yellow-700 transition-colors"
+          title="Book Event"
+        >
+          <Phone className="w-5 h-5" />
+        </button>
         <button
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-yellow-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-yellow-700 transition-colors hover-scale pulse-glow magnetic-button ripple-effect"
+          className="bg-gray-800 text-white w-14 h-14 rounded-lg flex items-center justify-center shadow-lg hover:bg-gray-700 transition-colors"
+          title="Contact Us"
         >
-          📞
+          <Mail className="w-5 h-5" />
         </button>
-
-        {/* Quick Actions Floating Menu */}
-        <div className="flex flex-col space-y-2">
-          <button
-            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gray-800 text-yellow-600 w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-gray-700 transition-colors hover-scale magnetic-button ripple-effect"
-          >
-            🖼️
-          </button>
-          <button
-            onClick={() => document.getElementById('spaces')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gray-800 text-yellow-600 w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-gray-700 transition-colors hover-scale magnetic-button ripple-effect"
-          >
-            🏛️
-          </button>
-          <button
-            onClick={() => document.getElementById('availability')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gray-800 text-yellow-600 w-14 h-14 rounded-full flex items-center justify-center text-lg shadow-lg hover:bg-gray-700 transition-colors hover-scale magnetic-button ripple-effect"
-          >
-            📅
-          </button>
-        </div>
       </div>
       
       <ScrollToTop />

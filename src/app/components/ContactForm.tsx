@@ -231,9 +231,14 @@ export default function ContactForm() {
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
                 >
                   <option value="">Select event type</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="corporate">Corporate Event</option>
+                  <option value="wedding">Wedding & Reception</option>
+                  <option value="bridal-shower">Bridal Shower</option>
+                  <option value="baby-shower">Baby Shower</option>
                   <option value="birthday">Birthday Party</option>
+                  <option value="kids-party">Kids Party</option>
+                  <option value="holiday">Holiday Celebration</option>
+                  <option value="intimate-dinner">Intimate Dinner</option>
+                  <option value="corporate">Corporate Event</option>
                   <option value="anniversary">Anniversary</option>
                   <option value="graduation">Graduation</option>
                   <option value="other">Other</option>

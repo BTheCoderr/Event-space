@@ -45,7 +45,8 @@ const businessResponses = {
   },
   tour: {
     keywords: ['tour', 'visit', 'see', 'view', 'walkthrough', 'show', 'look'],
-    response: "A venue tour is the best way to experience Events On Charles! We offer:\n\n🏛️ **Tour Options:**\n• In-person guided tours\n• Virtual 360° tour (available on our website)\n• Private consultation tours\n• Group tours for wedding parties\n\n📅 **Scheduling:**\n• Tours available during business hours\n• Weekend tours by appointment\n• Usually takes 30-45 minutes\n\nWould you like to schedule a tour? I can connect you with our team to find a convenient time!"
+    response: "A venue tour is the best way to experience Events On Charles! We offer:\n\n🏛️ **Tour Options:**\n• In-person guided tours\n• Virtual 360° tour (available on our website)\n• Private consultation tours\n• Group tours for wedding parties\n\n📅 **Scheduling:**\n• Tours available during business hours\n• Weekend tours by appointment\n• Usually takes 30-45 minutes\n\nWould you like to schedule a tour? I can connect you with our team to find a convenient time!",
+    actionType: 'booking' as const
   }
 }
 
@@ -71,7 +72,7 @@ export default function ChatBox() {
     const input = userInput.toLowerCase()
     
     // Find the best matching response
-    for (const [key, response] of Object.entries(businessResponses)) {
+    for (const [, response] of Object.entries(businessResponses)) {
       if (response.keywords && response.keywords.some(keyword => input.includes(keyword))) {
         return response
       }
@@ -102,6 +103,18 @@ export default function ChatBox() {
     // Simulate typing delay
     setTimeout(() => {
       const response = findBestResponse(currentInput)
+      
+      // TODO: UPGRADE TO REAL AI
+      // Replace findBestResponse with OpenAI API call:
+      // const aiResponse = await fetch('/api/ai-chat', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ 
+      //     message: currentInput,
+      //     context: 'Events On Charles venue assistant'
+      //   })
+      // })
+      // const response = await aiResponse.json()
       
       const botMessage: Message = {
         id: generateMessageId(),
@@ -154,14 +167,14 @@ export default function ChatBox() {
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-yellow-600 hover:bg-yellow-700 text-white rounded-full shadow-lg z-40 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="fixed bottom-20 right-6 w-16 h-16 bg-yellow-600 hover:bg-yellow-700 text-white rounded-full shadow-lg z-40 flex items-center justify-center transition-all duration-300 hover:scale-110"
       >
         {isOpen ? <X className="w-6 h-6" /> : <Bot className="w-6 h-6" />}
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl z-50 flex flex-col">
+        <div className="fixed bottom-20 right-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl z-50 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b bg-yellow-600 text-white rounded-t-lg">
             <div className="flex items-center space-x-2">
