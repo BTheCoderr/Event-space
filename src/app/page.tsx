@@ -1,17 +1,18 @@
+// Events On Charles - Main Landing Page - Updated with Analytics & Speed Insights
 'use client'
 
-import { useState } from 'react'
-import { MapPin, Users, Star, Phone, Mail, Menu, X } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Calendar, MapPin, Phone, Mail, Clock, Users, Star, ChevronDown, ChevronUp, Menu, X } from 'lucide-react'
+import ParticleBackground from './components/ParticleBackground'
+import EventGallery from './components/EventGallery'
+import InventoryShowcase from './components/InventoryShowcase'
+import VirtualTour from './components/VirtualTour'
+import OwnerInfo from './components/OwnerInfo'
+import ContactForm from './components/ContactForm'
+import ScrollToTop from './components/ScrollToTop'
+import ScrollIndicator from './components/ScrollIndicator'
 import ChatBox from './components/ChatBox'
 import AvailabilityCalendar from './components/AvailabilityCalendar'
-import VirtualTour from './components/VirtualTour'
-import InventoryShowcase from './components/InventoryShowcase'
-import ContactForm from './components/ContactForm'
-import EventGallery from './components/EventGallery'
-import OwnerInfo from './components/OwnerInfo'
-
-import ScrollIndicator from './components/ScrollIndicator'
-import ScrollToTop from './components/ScrollToTop'
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
