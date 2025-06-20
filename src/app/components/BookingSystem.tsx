@@ -1,10 +1,7 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { supabase } from '../../../lib/supabase'
-import SignatureCanvas from 'react-signature-canvas'
-import { Calendar, Clock, Users, FileText, CheckCircle, AlertCircle, CreditCard, Package, MessageSquare } from 'lucide-react'
-import PaymentModal from './PaymentModal'
+import { useState } from 'react'
+import { Calendar, Clock, Users, FileText, CheckCircle, Package, MessageSquare } from 'lucide-react'
 import RentalContract from './RentalContract'
 
 const PACKAGE_OPTIONS = [
@@ -105,9 +102,6 @@ export default function BookingSystem() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [showPaymentModal, setShowPaymentModal] = useState(false)
-  const [bookingId, setBookingId] = useState<string>('')
-  const signatureRef = useRef<SignatureCanvas>(null)
 
   const updateFormData = (field: keyof FormData, value: string | number | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -198,32 +192,6 @@ export default function BookingSystem() {
       alert('There was an error submitting your booking. Please try again.')
     } finally {
       setIsSubmitting(false)
-    }
-  }
-
-  const handlePaymentSuccess = async (paymentIntent: any) => {
-    try {
-      // Update booking with payment information
-      if (bookingId) {
-        const { error } = await supabase
-          .from('bookings')
-          .update({
-            payment_status: 'deposit_paid',
-            status: 'confirmed',
-            stripe_payment_intent_id: paymentIntent.id
-          })
-          .eq('id', bookingId)
-
-        if (!error) {
-          console.log('✅ Booking updated with payment info')
-        }
-      }
-
-      setShowPaymentModal(false)
-      // Refresh the success message to show payment confirmation
-      setIsSubmitted(true)
-    } catch (error) {
-      console.error('Error updating booking with payment:', error)
     }
   }
 

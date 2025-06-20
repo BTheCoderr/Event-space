@@ -182,14 +182,9 @@ export async function POST(request: NextRequest) {
           depositAmount: depositAmount
         })
 
-      } catch (emailError) {
-        console.error(`❌ Failed to send via ${account.name}:`, emailError instanceof Error ? emailError.message : 'Unknown error')
-        
-        // If this isn't the last account, try the next one
-        if (i < emailAccounts.length - 1) {
-          console.log(`🔄 Trying next email account...`)
-          continue
-        }
+      } catch {
+        console.log('❌ Failed to send via Primary Support')
+        console.log('🔄 Trying next email account...')
       }
     }
 
