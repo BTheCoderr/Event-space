@@ -13,7 +13,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 )
 
-// Type definitions
+// Define types
 interface BookingData {
   id: string
   customer_name: string
@@ -30,43 +30,38 @@ interface BookingData {
   status: string
   payment_status: string
   created_at: string
-  updated_at: string
+  updated_at?: string
   stripe_payment_intent_id?: string
 }
 
 // Simple rate limiting for payment attempts
-const rateLimitMap = new Map<string, number[]>()
-
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now()
-  const windowStart = now - 300000 // 5 minute window for payments
-  
-  const requestTimestamps = rateLimitMap.get(ip) || []
-  const recentRequests = requestTimestamps.filter(timestamp => timestamp > windowStart)
-  
-  if (recentRequests.length >= 3) { // Max 3 payment attempts per 5 minutes
-    return false
-  }
-  
-  rateLimitMap.set(ip, [...recentRequests, now])
-  return true
-}
+const attempts = new Map()
 
 export async function POST(request: NextRequest) {
   try {
-    // Rate limiting for payment attempts
-    const ip = request.headers.get('x-forwarded-for') || 
-               request.headers.get('x-real-ip') || 
-               'anonymous'
-    if (!checkRateLimit(ip)) {
-      console.log(`Payment rate limit exceeded for IP: ${ip}`)
+    // Rate limiting
+    const ip = request.headers.get('x-forwarded-for') || 'unknown'
+    const now = Date.now()
+    const windowMs = 5 * 60 * 1000 // 5 minutes
+    const maxAttempts = 3
+
+    if (!attempts.has(ip)) {
+      attempts.set(ip, [])
+    }
+
+    const userAttempts = attempts.get(ip) as number[]
+    const recentAttempts = userAttempts.filter(time => now - time < windowMs)
+    
+    if (recentAttempts.length >= maxAttempts) {
       return NextResponse.json(
-        { error: 'Too many payment attempts. Please try again later.' }, 
+        { error: 'Too many payment attempts. Please try again later.' },
         { status: 429 }
       )
     }
 
-    // Log payment attempt
+    recentAttempts.push(now)
+    attempts.set(ip, recentAttempts)
+
     console.log(`${new Date().toISOString()} - Payment attempt from IP: ${ip}`)
 
     const { amount, bookingId, customerInfo, paymentType } = await request.json()
@@ -88,6 +83,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const bookingData = booking as BookingData
+
     // Create payment intent
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
@@ -97,11 +94,11 @@ export async function POST(request: NextRequest) {
         customerName: customerInfo.name,
         customerEmail: customerInfo.email,
         paymentType,
-        eventType: booking.event_type,
-        eventDate: booking.event_date,
-        packageName: booking.package_name
+        eventType: bookingData.event_type,
+        eventDate: bookingData.event_date,
+        packageName: bookingData.package_name
       },
-      description: `${paymentType === 'deposit' ? 'Deposit' : 'Payment'} for ${booking.event_type} - ${booking.customer_name}`
+      description: `${paymentType === 'deposit' ? 'Deposit' : 'Payment'} for ${bookingData.event_type} - ${bookingData.customer_name}`
     })
 
     console.log('✅ Payment intent created:', paymentIntent.id)
@@ -161,11 +158,13 @@ export async function PUT(request: NextRequest) {
       )
     }
 
-    console.log('✅ Booking status updated:', updatedBooking)
+    const updatedBookingData = updatedBooking as BookingData
+
+    console.log('✅ Booking status updated:', updatedBookingData)
 
     // Send payment confirmation email
     try {
-      await sendPaymentConfirmationEmail(updatedBooking as BookingData, paymentIntent)
+      await sendPaymentConfirmationEmail(updatedBookingData, paymentIntent)
     } catch (emailError) {
       console.error('❌ Failed to send confirmation email:', emailError)
       // Don't fail the entire request if email fails
@@ -173,7 +172,7 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      booking: updatedBooking,
+      booking: updatedBookingData,
       paymentIntent: {
         id: paymentIntent.id,
         amount: paymentIntent.amount,

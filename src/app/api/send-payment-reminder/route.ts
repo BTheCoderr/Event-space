@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
         </div>
         
         <div style="background: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <h2 style="color: #d4af37; margin-top: 0;">💳 Payment Reminder - Your Event is Confirmed!</h2>
+          <h2 style="color: #d4af37; margin-top: 0;">Payment Reminder - Your Event is Confirmed!</h2>
           
           <p>Dear ${customerName},</p>
           
@@ -226,22 +226,7 @@ export async function POST(request: NextRequest) {
       
       await fs.mkdir(logDir, { recursive: true })
       
-      let emailLogs: Array<{
-        to: string
-        subject: string
-        customerName: string
-        eventType: string
-        eventDate: string
-        packageName: string
-        depositAmount: number
-        bookingId: string
-        paymentLink: string
-        htmlContent: string
-        sentAt: string
-        status: string
-        reason: string
-      }> = []
-      
+      let emailLogs = []
       try {
         const existingLogs = await fs.readFile(logFile, 'utf8')
         emailLogs = JSON.parse(existingLogs)
