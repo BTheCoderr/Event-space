@@ -18,14 +18,14 @@ exports.handler = async (event, context) => {
       port: 465,
       secure: true,
       auth: {
-        user: 'info@eventsoncharles.com',
+        user: 'support@eventsoncharles.com',
         pass: password
       }
     })
 
     // Email to customer
     const customerEmailOptions = {
-      from: 'Events On Charles <info@eventsoncharles.com>',
+      from: 'Events On Charles <support@eventsoncharles.com>',
       to: email,
       subject: 'Booking Confirmation - Events On Charles',
       html: `
@@ -65,7 +65,7 @@ exports.handler = async (event, context) => {
             
             <div style="text-align: center; margin: 30px 0;">
               <p><strong>Phone:</strong> (555) 123-4567</p>
-              <p><strong>Email:</strong> info@eventsoncharles.com</p>
+              <p><strong>Email:</strong> support@eventsoncharles.com</p>
             </div>
             
             <p>Thank you for choosing Events On Charles for your special occasion!</p>
@@ -84,8 +84,8 @@ exports.handler = async (event, context) => {
 
     // Email to business owner
     const businessEmailOptions = {
-      from: 'Events On Charles <info@eventsoncharles.com>',
-      to: 'info@eventsoncharles.com',
+      from: 'Events On Charles <support@eventsoncharles.com>',
+      to: 'support@eventsoncharles.com',
       subject: `New Booking Request - ${eventType} on ${eventDate}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

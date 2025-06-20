@@ -363,7 +363,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="w-4 h-4" />
-                  <span>info@eventsoncharles.com</span>
+                  <span>support@eventsoncharles.com</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />

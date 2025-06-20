@@ -129,7 +129,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <p className="font-medium">Email</p>
-                <p className="text-gray-600">info@eventsoncharles.com</p>
+                <p className="text-gray-600">support@eventsoncharles.com</p>
               </div>
             </div>
             

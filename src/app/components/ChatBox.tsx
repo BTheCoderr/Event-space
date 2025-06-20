@@ -40,7 +40,7 @@ const businessResponses = {
   },
   contact: {
     keywords: ['contact', 'phone', 'email', 'hours', 'reach', 'call', 'speak'],
-    response: "I'd be happy to connect you with our team!\n\n📞 **Contact Information:**\n• Phone: (401) 671-6758\n• Email: info@eventsoncharles.com\n\n🕐 **Business Hours:**\n• Monday-Friday: 9:00 AM - 6:00 PM\n• Saturday-Sunday: 10:00 AM - 4:00 PM\n\nWould you like me to have someone call you back, or would you prefer to schedule a venue tour?",
+    response: "I'd be happy to connect you with our team!\n\n📞 **Contact Information:**\n• Phone: (401) 671-6758\n• Email: support@eventsoncharles.com\n\n🕐 **Business Hours:**\n• Monday-Friday: 9:00 AM - 6:00 PM\n• Saturday-Sunday: 10:00 AM - 4:00 PM\n\nWould you like me to have someone call you back, or would you prefer to schedule a venue tour?",
     actionType: 'contact' as const
   },
   tour: {
@@ -80,7 +80,7 @@ export default function ChatBox() {
     
     // Default response for unmatched queries
     return {
-      response: "I'd be happy to help! For specific questions about Events On Charles, you can:\n\n• Ask about pricing and packages\n• Check availability for your date\n• Learn about our services and amenities\n• Schedule a venue tour\n• Get contact information\n\nYou can also call us directly at (401) 671-6758 or email info@eventsoncharles.com. What specific information can I help you find?",
+      response: "I'd be happy to help! For specific questions about Events On Charles, you can:\n\n• Ask about pricing and packages\n• Check availability for your date\n• Learn about our services and amenities\n• Schedule a venue tour\n• Get contact information\n\nYou can also call us directly at (401) 671-6758 or email support@eventsoncharles.com. What specific information can I help you find?",
       actionType: 'contact' as const
     }
   }
