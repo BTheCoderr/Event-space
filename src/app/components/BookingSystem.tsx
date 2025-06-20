@@ -5,6 +5,7 @@ import { supabase } from '../../../lib/supabase'
 import SignatureCanvas from 'react-signature-canvas'
 import { Calendar, Clock, Users, FileText, CheckCircle, AlertCircle, CreditCard, Package, MessageSquare } from 'lucide-react'
 import PaymentModal from './PaymentModal'
+import RentalContract from './RentalContract'
 
 const PACKAGE_OPTIONS = [
   {
@@ -71,11 +72,16 @@ interface FormData {
   customerPhone: string
   eventType: string
   eventDate: string
+  startTime: string
+  endTime: string
   guestCount: string
+  guestsUnder21: string
   packageName: string
   totalAmount: number
   depositAmount: number
   message: string
+  signatureData?: string
+  contractAccepted?: boolean
 }
 
 export default function BookingSystem() {
@@ -86,11 +92,16 @@ export default function BookingSystem() {
     customerPhone: '',
     eventType: '',
     eventDate: '',
+    startTime: '',
+    endTime: '',
     guestCount: '',
+    guestsUnder21: '',
     packageName: '',
     totalAmount: 0,
     depositAmount: 0,
-    message: ''
+    message: '',
+    signatureData: '',
+    contractAccepted: false
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -98,7 +109,7 @@ export default function BookingSystem() {
   const [bookingId, setBookingId] = useState<string>('')
   const signatureRef = useRef<SignatureCanvas>(null)
 
-  const updateFormData = (field: keyof FormData, value: string | number) => {
+  const updateFormData = (field: keyof FormData, value: string | number | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
@@ -108,17 +119,38 @@ export default function BookingSystem() {
     updateFormData('depositAmount', pkg.deposit)
   }
 
-  const saveSignature = () => {
-    if (signatureRef.current) {
-      const signatureData = signatureRef.current.toDataURL()
-      setFormData(prev => ({ ...prev, signature_data: signatureData }))
-    }
+  const handleSignatureComplete = (signatureData: string) => {
+    updateFormData('signatureData', signatureData)
   }
 
-  const clearSignature = () => {
-    if (signatureRef.current) {
-      signatureRef.current.clear()
-      setFormData(prev => ({ ...prev, signature_data: '' }))
+  const handleContractAccepted = () => {
+    updateFormData('contractAccepted', true)
+    setCurrentStep(5) // Move to final confirmation
+  }
+
+  // Prepare contract data for the RentalContract component
+  const getContractData = () => {
+    const selectedPackage = PACKAGE_OPTIONS.find(pkg => pkg.name === formData.packageName)
+    
+    return {
+      customerName: formData.customerName,
+      customerEmail: formData.customerEmail,
+      customerPhone: formData.customerPhone,
+      eventType: formData.eventType,
+      eventDate: formData.eventDate,
+      startTime: formData.startTime,
+      endTime: formData.endTime,
+      guestCount: formData.guestCount,
+      guestsUnder21: formData.guestsUnder21,
+      packageName: formData.packageName,
+      totalAmount: formData.totalAmount,
+      depositAmount: formData.depositAmount,
+      securityDeposit: 0, // Could be calculated based on package
+      eventItems: selectedPackage ? selectedPackage.features.map(feature => ({
+        item: feature,
+        amount: 0, // Individual item pricing could be added later
+        checked: true
+      })) : []
     }
   }
 
@@ -139,12 +171,17 @@ export default function BookingSystem() {
           customer_phone: formData.customerPhone,
           event_type: formData.eventType,
           event_date: formData.eventDate,
+          start_time: formData.startTime,
+          end_time: formData.endTime,
           guest_count: parseInt(formData.guestCount),
+          guests_under_21: formData.guestsUnder21,
           package_name: formData.packageName,
           total_amount: formData.totalAmount,
           deposit_amount: formData.depositAmount,
           remaining_amount: formData.totalAmount - formData.depositAmount,
           message: formData.message,
+          signature_data: formData.signatureData,
+          contract_accepted: formData.contractAccepted,
           status: 'inquiry',
           payment_status: 'pending'
         }),
@@ -152,7 +189,7 @@ export default function BookingSystem() {
 
       if (response.ok) {
         setIsSubmitted(true)
-        setCurrentStep(5) // Success step
+        // Already at step 5, show success message
       } else {
         throw new Error('Failed to submit booking')
       }
@@ -191,7 +228,7 @@ export default function BookingSystem() {
   }
 
   const nextStep = () => {
-    if (currentStep < 4) {
+    if (currentStep < 5) {
       setCurrentStep(currentStep + 1)
     }
   }
@@ -273,35 +310,89 @@ export default function BookingSystem() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            {[1, 2, 3, 4].map((step) => (
+        {/* Progress Steps */}
+        <div className="flex justify-center mb-8">
+          <div className="flex items-center space-x-4">
+            {[1, 2, 3, 4, 5].map((step) => (
               <div key={step} className="flex items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-medium ${
-                  step <= currentStep ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-600'
-                }`}>
+                <div
+                  className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
+                    currentStep >= step
+                      ? 'bg-yellow-600 text-white'
+                      : 'bg-gray-200 text-gray-600'
+                  }`}
+                >
                   {step}
                 </div>
-                {step < 4 && (
-                  <div className={`w-24 h-1 mx-2 ${
-                    step < currentStep ? 'bg-yellow-600' : 'bg-gray-200'
-                  }`} />
+                {step < 5 && (
+                  <div
+                    className={`w-16 h-1 mx-2 ${
+                      currentStep > step ? 'bg-yellow-600' : 'bg-gray-200'
+                    }`}
+                  />
                 )}
               </div>
             ))}
           </div>
-          <div className="flex justify-between mt-2 text-sm text-gray-600">
-            <span>Event Details</span>
-            <span>Package Selection</span>
-            <span>Contact Info</span>
-            <span>Confirmation</span>
+        </div>
+
+        {/* Step Labels */}
+        <div className="flex justify-center mb-8">
+          <div className="flex space-x-8 text-sm">
+            <span className={currentStep >= 1 ? 'text-yellow-600 font-medium' : 'text-gray-500'}>
+              Event Details
+            </span>
+            <span className={currentStep >= 2 ? 'text-yellow-600 font-medium' : 'text-gray-500'}>
+              Package
+            </span>
+            <span className={currentStep >= 3 ? 'text-yellow-600 font-medium' : 'text-gray-500'}>
+              Contact Info
+            </span>
+            <span className={currentStep >= 4 ? 'text-yellow-600 font-medium' : 'text-gray-500'}>
+              Contract
+            </span>
+            <span className={currentStep >= 5 ? 'text-yellow-600 font-medium' : 'text-gray-500'}>
+              Confirmation
+            </span>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-xl p-8">
+        {/* Success Message */}
+        {isSubmitted && (
+          <div className="bg-white rounded-lg shadow-xl p-8 text-center">
+            <div className="mb-6">
+              <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Booking Request Submitted!</h2>
+              <p className="text-gray-600">
+                Thank you for choosing Events On Charles. We've received your booking request and signed contract.
+              </p>
+            </div>
+            
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+              <h3 className="font-semibold text-yellow-800 mb-2">What happens next?</h3>
+              <ul className="text-yellow-700 text-sm space-y-1 text-left">
+                <li>• We'll confirm your event date availability within 24 hours</li>
+                <li>• You'll receive a payment link for your ${formData.depositAmount} deposit</li>
+                <li>• Your event is officially confirmed once deposit is received</li>
+                <li>• We'll send you a detailed event planning guide</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-sm text-gray-600">
+                <strong>Booking Reference:</strong> {formData.customerName} - {formData.eventType} - {new Date(formData.eventDate).toLocaleDateString()}
+              </p>
+              <p className="text-sm text-gray-600">
+                Questions? Contact us at <strong>support@eventsoncharles.com</strong> or <strong>(410) 555-0123</strong>
+              </p>
+            </div>
+          </div>
+        )}
+
+        {!isSubmitted && (
+          <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-xl p-8">
           {/* Step 1: Event Details */}
           {currentStep === 1 && (
             <div className="space-y-6">
@@ -345,6 +436,36 @@ export default function BookingSystem() {
                 />
               </div>
 
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Clock className="w-4 h-4 inline mr-2" />
+                    Start Time
+                  </label>
+                  <input
+                    type="time"
+                    value={formData.startTime}
+                    onChange={(e) => updateFormData('startTime', e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Clock className="w-4 h-4 inline mr-2" />
+                    End Time
+                  </label>
+                  <input
+                    type="time"
+                    value={formData.endTime}
+                    onChange={(e) => updateFormData('endTime', e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <Users className="w-4 h-4 inline mr-2" />
@@ -365,11 +486,27 @@ export default function BookingSystem() {
                 </select>
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Will there be guests under 21 years old?
+                </label>
+                <select
+                  value={formData.guestsUnder21}
+                  onChange={(e) => updateFormData('guestsUnder21', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  required
+                >
+                  <option value="">Please select</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
               <div className="flex justify-end">
                 <button
                   type="button"
                   onClick={nextStep}
-                  disabled={!formData.eventType || !formData.eventDate || !formData.guestCount}
+                  disabled={!formData.eventType || !formData.eventDate || !formData.startTime || !formData.endTime || !formData.guestCount || !formData.guestsUnder21}
                   className="bg-yellow-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-yellow-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   Next: Choose Package
@@ -511,14 +648,40 @@ export default function BookingSystem() {
                   disabled={!formData.customerName || !formData.customerEmail}
                   className="bg-yellow-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-yellow-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
-                  Review Booking
+                  Next: Review Contract
                 </button>
               </div>
             </div>
           )}
 
-          {/* Step 4: Confirmation */}
+          {/* Step 4: Contract Review */}
           {currentStep === 4 && (
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                <FileText className="w-6 h-6 inline mr-2" />
+                Event Facility Rental Agreement
+              </h2>
+              
+              <RentalContract
+                contractData={getContractData()}
+                onSignatureComplete={handleSignatureComplete}
+                onContractAccepted={handleContractAccepted}
+              />
+
+              <div className="flex justify-between pt-6">
+                <button
+                  type="button"
+                  onClick={prevStep}
+                  className="bg-gray-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
+                >
+                  Back to Contact Info
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 5: Final Confirmation */}
+          {currentStep === 5 && (
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Review Your Booking</h2>
               
@@ -553,6 +716,18 @@ export default function BookingSystem() {
                     <p className="text-gray-700">{formData.message}</p>
                   </div>
                 )}
+
+                {formData.contractAccepted && (
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <h4 className="font-semibold text-green-800 mb-2 flex items-center">
+                      <CheckCircle className="w-4 h-4 mr-2" />
+                      Contract Signed
+                    </h4>
+                    <p className="text-green-700 text-sm">
+                      You have successfully reviewed and signed the Event Facility Rental Agreement.
+                    </p>
+                  </div>
+                )}
               </div>
 
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
@@ -568,14 +743,14 @@ export default function BookingSystem() {
               <div className="flex justify-between">
                 <button
                   type="button"
-                  onClick={prevStep}
+                  onClick={() => setCurrentStep(4)}
                   className="bg-gray-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
                 >
-                  Back
+                  Back to Contract
                 </button>
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !formData.contractAccepted}
                   className="bg-yellow-600 text-white px-8 py-2 rounded-lg font-medium hover:bg-yellow-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center"
                 >
                   {isSubmitting ? (
@@ -590,7 +765,8 @@ export default function BookingSystem() {
               </div>
             </div>
           )}
-        </form>
+          </form>
+        )}
       </div>
     </div>
   )
