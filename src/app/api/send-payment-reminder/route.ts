@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { promises as fs } from 'fs'
+import path from 'path'
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,7 +29,7 @@ export async function POST(request: NextRequest) {
         </div>
         
         <div style="background: white; padding: 30px; border-radius: 0 0 10px 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <h2 style="color: #d4af37; margin-top: 0;">Payment Reminder - Your Event is Confirmed!</h2>
+          <h2 style="color: #d4af37; margin-top: 0;">💳 Payment Reminder - Your Event is Confirmed!</h2>
           
           <p>Dear ${customerName},</p>
           
@@ -126,7 +128,7 @@ export async function POST(request: NextRequest) {
         console.log(`✅ SMTP connection verified for ${account.name}`)
 
         // Send the email
-        const emailResult = await transporter.sendMail({
+        await transporter.sendMail({
           from: `Events On Charles <${account.user}>`,
           to: customerEmail,
           subject: `💳 Payment Required - ${eventType} on ${new Date(eventDate).toLocaleDateString()}`,
@@ -167,7 +169,7 @@ export async function POST(request: NextRequest) {
             `
           })
           console.log('📧 Internal notification sent with payment link')
-        } catch (notificationError) {
+        } catch (error) {
           console.log('Internal notification failed, but customer email was sent successfully')
         }
 
@@ -218,20 +220,32 @@ export async function POST(request: NextRequest) {
     console.log('='.repeat(60))
 
     // Save to file for manual sending
-    const fs = require('fs').promises
-    const path = require('path')
-    
     try {
       const logDir = path.join(process.cwd(), 'logs')
       const logFile = path.join(logDir, 'sent-emails.json')
       
       await fs.mkdir(logDir, { recursive: true })
       
-      let emailLogs = []
+      let emailLogs: Array<{
+        to: string
+        subject: string
+        customerName: string
+        eventType: string
+        eventDate: string
+        packageName: string
+        depositAmount: number
+        bookingId: string
+        paymentLink: string
+        htmlContent: string
+        sentAt: string
+        status: string
+        reason: string
+      }> = []
+      
       try {
         const existingLogs = await fs.readFile(logFile, 'utf8')
         emailLogs = JSON.parse(existingLogs)
-      } catch (readError) {
+      } catch {
         // File doesn't exist, start fresh
       }
       

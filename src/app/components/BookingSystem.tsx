@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import { supabase } from '../../../lib/supabase'
 import SignatureCanvas from 'react-signature-canvas'
-import { Calendar, Clock, Users, FileText, CheckCircle, AlertCircle, CreditCard } from 'lucide-react'
+import { Calendar, Users, FileText, CheckCircle, AlertCircle, CreditCard } from 'lucide-react'
 import PaymentModal from './PaymentModal'
 
 interface BookingFormData {
@@ -255,7 +255,7 @@ By signing below, you agree to these terms and confirm your booking request with
     }
   }
 
-  const handlePaymentSuccess = async (paymentIntent: any) => {
+  const handlePaymentSuccess = async (paymentIntent: { id: string; status: string }) => {
     try {
       // Update booking with payment information
       if (bookingId) {

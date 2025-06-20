@@ -13,6 +13,27 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 )
 
+// Type definitions
+interface BookingData {
+  id: string
+  customer_name: string
+  customer_email: string
+  customer_phone?: string
+  event_type: string
+  event_date: string
+  guest_count: number
+  package_name: string
+  total_amount: number
+  deposit_amount: number
+  remaining_amount: number
+  message?: string
+  status: string
+  payment_status: string
+  created_at: string
+  updated_at: string
+  stripe_payment_intent_id?: string
+}
+
 // Simple rate limiting for payment attempts
 const rateLimitMap = new Map<string, number[]>()
 
@@ -144,7 +165,7 @@ export async function PUT(request: NextRequest) {
 
     // Send payment confirmation email
     try {
-      await sendPaymentConfirmationEmail(updatedBooking, paymentIntent)
+      await sendPaymentConfirmationEmail(updatedBooking as BookingData, paymentIntent)
     } catch (emailError) {
       console.error('❌ Failed to send confirmation email:', emailError)
       // Don't fail the entire request if email fails
@@ -169,7 +190,7 @@ export async function PUT(request: NextRequest) {
   }
 }
 
-async function sendPaymentConfirmationEmail(booking: any, paymentIntent: any) {
+async function sendPaymentConfirmationEmail(booking: BookingData, paymentIntent: Stripe.PaymentIntent) {
   const amount = (paymentIntent.amount / 100).toFixed(2)
   const isDeposit = paymentIntent.metadata.paymentType === 'deposit'
   
