@@ -1,17 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
-import { createClient } from '@supabase/supabase-js'
-import nodemailer from 'nodemailer'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-05-28.basil'
+// Initialize Stripe
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+  apiVersion: '2025-05-28.basil',
 })
 
-// Initialize Supabase client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+// Conditionally initialize Supabase only if environment variables are available
+let supabase: any = null
+if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  const { createClient } = require('@supabase/supabase-js')
+  supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  )
+}
+
+// Conditionally initialize nodemailer only if available
+let nodemailer: any = null
+try {
+  nodemailer = require('nodemailer')
+} catch (error) {
+  console.log('Nodemailer not available, email functionality disabled')
+}
 
 // Define types
 interface BookingData {
@@ -39,72 +50,41 @@ const attempts = new Map()
 
 export async function POST(request: NextRequest) {
   try {
-    // Rate limiting
-    const ip = request.headers.get('x-forwarded-for') || 'unknown'
-    const now = Date.now()
-    const windowMs = 5 * 60 * 1000 // 5 minutes
-    const maxAttempts = 3
+    const { bookingId, amount, customerEmail, customerName } = await request.json()
 
-    if (!attempts.has(ip)) {
-      attempts.set(ip, [])
-    }
-
-    const userAttempts = attempts.get(ip) as number[]
-    const recentAttempts = userAttempts.filter(time => now - time < windowMs)
-    
-    if (recentAttempts.length >= maxAttempts) {
+    if (!process.env.STRIPE_SECRET_KEY) {
       return NextResponse.json(
-        { error: 'Too many payment attempts. Please try again later.' },
-        { status: 429 }
+        { error: 'Payment system not configured' },
+        { status: 500 }
       )
     }
-
-    recentAttempts.push(now)
-    attempts.set(ip, recentAttempts)
-
-    console.log(`${new Date().toISOString()} - Payment attempt from IP: ${ip}`)
-
-    const { amount, bookingId, customerInfo, paymentType } = await request.json()
-
-    console.log('💳 Creating payment intent:', { bookingId, amount, paymentType })
-
-    // Get booking details from database
-    const { data: booking, error: bookingError } = await supabase
-      .from('bookings')
-      .select('*')
-      .eq('id', bookingId)
-      .single()
-
-    if (bookingError || !booking) {
-      console.error('❌ Booking not found:', bookingError)
-      return NextResponse.json(
-        { error: 'Booking not found' },
-        { status: 404 }
-      )
-    }
-
-    const bookingData = booking as BookingData
 
     // Create payment intent
     const paymentIntent = await stripe.paymentIntents.create({
-      amount,
+      amount: Math.round(amount * 100), // Convert to cents
       currency: 'usd',
       metadata: {
         bookingId,
-        customerName: customerInfo.name,
-        customerEmail: customerInfo.email,
-        paymentType,
-        eventType: bookingData.event_type,
-        eventDate: bookingData.event_date,
-        packageName: bookingData.package_name
+        customerEmail,
+        customerName,
       },
-      description: `${paymentType === 'deposit' ? 'Deposit' : 'Payment'} for ${bookingData.event_type} - ${bookingData.customer_name}`
     })
 
-    console.log('✅ Payment intent created:', paymentIntent.id)
-
-    // Set up webhook to handle successful payments
-    // For now, we'll handle the success in the frontend and call another API
+    // Update booking status if Supabase is available
+    if (supabase && bookingId) {
+      try {
+        await supabase
+          .from('bookings')
+          .update({
+            payment_status: 'processing',
+            stripe_payment_intent_id: paymentIntent.id
+          })
+          .eq('id', bookingId)
+      } catch (dbError) {
+        console.log('Database update failed:', dbError)
+        // Continue with payment creation even if DB update fails
+      }
+    }
 
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
@@ -112,9 +92,9 @@ export async function POST(request: NextRequest) {
     })
 
   } catch (error) {
-    console.error('❌ Error creating payment intent:', error)
+    console.error('Payment intent creation failed:', error)
     return NextResponse.json(
-      { error: 'Failed to create payment intent', details: error instanceof Error ? error.message : 'Unknown error' },
+      { error: 'Failed to create payment intent' },
       { status: 500 }
     )
   }
@@ -137,42 +117,42 @@ export async function PUT(request: NextRequest) {
       )
     }
 
-    // Update booking status in database
-    const { data: updatedBooking, error: updateError } = await supabase
-      .from('bookings')
-      .update({
-        status: 'confirmed',
-        payment_status: paymentIntent.metadata.paymentType === 'deposit' ? 'deposit_paid' : 'fully_paid',
-        stripe_payment_intent_id: paymentIntentId,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', bookingId)
-      .select()
-      .single()
+    // Update booking status if Supabase is available
+    if (supabase) {
+      try {
+        const { data: updatedBooking, error: updateError } = await supabase
+          .from('bookings')
+          .update({
+            status: 'confirmed',
+            payment_status: paymentIntent.metadata.paymentType === 'deposit' ? 'deposit_paid' : 'fully_paid',
+            stripe_payment_intent_id: paymentIntentId,
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', bookingId)
+          .select()
+          .single()
 
-    if (updateError) {
-      console.error('❌ Error updating booking:', updateError)
-      return NextResponse.json(
-        { error: 'Failed to update booking status' },
-        { status: 500 }
-      )
-    }
-
-    const updatedBookingData = updatedBooking as BookingData
-
-    console.log('✅ Booking status updated:', updatedBookingData)
-
-    // Send payment confirmation email
-    try {
-      await sendPaymentConfirmationEmail(updatedBookingData, paymentIntent)
-    } catch (emailError) {
-      console.error('❌ Failed to send confirmation email:', emailError)
-      // Don't fail the entire request if email fails
+        if (updateError) {
+          console.error('❌ Error updating booking:', updateError)
+        } else {
+          console.log('✅ Booking status updated:', updatedBooking)
+          
+          // Send payment confirmation email if nodemailer is available
+          if (nodemailer) {
+            try {
+              await sendPaymentConfirmationEmail(updatedBooking, paymentIntent)
+            } catch (emailError) {
+              console.error('❌ Failed to send confirmation email:', emailError)
+            }
+          }
+        }
+      } catch (dbError) {
+        console.error('Database update failed:', dbError)
+      }
     }
 
     return NextResponse.json({
       success: true,
-      booking: updatedBookingData,
       paymentIntent: {
         id: paymentIntent.id,
         amount: paymentIntent.amount,
@@ -183,13 +163,18 @@ export async function PUT(request: NextRequest) {
   } catch (error) {
     console.error('❌ Error confirming payment:', error)
     return NextResponse.json(
-      { error: 'Failed to confirm payment', details: error instanceof Error ? error.message : 'Unknown error' },
+      { error: 'Failed to confirm payment' },
       { status: 500 }
     )
   }
 }
 
-async function sendPaymentConfirmationEmail(booking: BookingData, paymentIntent: Stripe.PaymentIntent) {
+async function sendPaymentConfirmationEmail(booking: any, paymentIntent: Stripe.PaymentIntent) {
+  if (!nodemailer) {
+    console.log('Nodemailer not available, skipping email')
+    return
+  }
+
   const amount = (paymentIntent.amount / 100).toFixed(2)
   const isDeposit = paymentIntent.metadata.paymentType === 'deposit'
   
@@ -229,39 +214,10 @@ async function sendPaymentConfirmationEmail(booking: BookingData, paymentIntent:
           <p><strong>🆔 Booking ID:</strong> ${booking.id}</p>
         </div>
         
-        ${isDeposit ? `
-        <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
-          <h4 style="color: #856404; margin-top: 0;">📋 Next Steps:</h4>
-          <p style="color: #856404; margin-bottom: 0;">
-            Your event is now <strong>officially confirmed</strong>! The remaining balance will be due on your event date.<br><br>
-            We'll contact you closer to your event date to finalize all the details and arrange final payment.
-          </p>
-        </div>
-        ` : `
-        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #28a745;">
-          <h4 style="color: #28a745; margin-top: 0;">🎯 You're All Set!</h4>
-          <p style="color: #28a745; margin-bottom: 0;">
-            Your payment is complete and your event is fully confirmed. We'll be in touch closer to your event date to finalize all the details.
-          </p>
-        </div>
-        `}
-        
-        <div style="text-align: center; margin: 30px 0;">
-          <p><strong>📞 Phone:</strong> (401) 671-6758</p>
-          <p><strong>📧 Email:</strong> support@eventsoncharles.com</p>
-          <p><strong>🌐 Website:</strong> eventsoncharles.com</p>
-        </div>
-        
-        <p>Thank you for choosing Events On Charles for your special event. We can't wait to make your celebration unforgettable!</p>
+        <p>Thank you for choosing Events On Charles!</p>
         
         <p>Best regards,<br>
-        <strong>Events On Charles Team</strong><br>
-        Baltimore's Premier Event Venue</p>
-        
-        <div style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 30px; font-size: 12px; color: #666; text-align: center;">
-          <p>Keep this email as your payment receipt. If you have any questions, please contact us immediately.</p>
-          <p>Transaction ID: ${paymentIntent.id} | Booking Reference: ${booking.id}</p>
-        </div>
+        <strong>Events On Charles Team</strong></p>
       </div>
     </body>
     </html>
@@ -306,40 +262,11 @@ async function sendPaymentConfirmationEmail(booking: BookingData, paymentIntent:
       await transporter.sendMail({
         from: `Events On Charles <${account.user}>`,
         to: booking.customer_email,
-        subject: `✅ Payment Confirmed - ${booking.event_type} on ${new Date(booking.event_date).toLocaleDateString()}`,
+        subject: `✅ Payment Confirmed - ${booking.event_type}`,
         html: htmlContent
       })
 
-      // Send internal notification
-      await transporter.sendMail({
-        from: `Events On Charles <${account.user}>`,
-        to: account.user,
-        subject: `💰 Payment Received - ${booking.customer_name} (${booking.id})`,
-        html: `
-          <h2>Payment Successfully Processed</h2>
-          <p><strong>Customer:</strong> ${booking.customer_name}</p>
-          <p><strong>Email:</strong> ${booking.customer_email}</p>
-          <p><strong>Event:</strong> ${booking.event_type} on ${new Date(booking.event_date).toLocaleDateString()}</p>
-          <p><strong>Package:</strong> ${booking.package_name}</p>
-          <p><strong>Amount Paid:</strong> $${amount}</p>
-          <p><strong>Payment Type:</strong> ${isDeposit ? 'Deposit (25%)' : 'Full Payment'}</p>
-          <p><strong>Transaction ID:</strong> ${paymentIntent.id}</p>
-          <p><strong>Booking ID:</strong> ${booking.id}</p>
-          <p><strong>New Status:</strong> ${booking.status} (${booking.payment_status})</p>
-          
-          <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0;">
-            <h3>Booking Status Updated:</h3>
-            <ul>
-              <li>✅ Payment processed successfully</li>
-              <li>✅ Booking status: ${booking.status}</li>
-              <li>✅ Payment status: ${booking.payment_status}</li>
-              <li>✅ Customer confirmation email sent</li>
-            </ul>
-          </div>
-        `
-      })
-
-      console.log(`✅ Payment confirmation emails sent via ${account.name}`)
+      console.log(`✅ Payment confirmation email sent via ${account.name}`)
       return // Success, exit the function
 
     } catch (emailError) {

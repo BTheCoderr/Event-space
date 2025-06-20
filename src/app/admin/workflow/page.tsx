@@ -32,6 +32,12 @@ export default function AdminWorkflow() {
 
   const fetchBookings = async () => {
     try {
+      if (!supabase) {
+        console.log('Supabase not configured')
+        setLoading(false)
+        return
+      }
+
       const { data, error } = await supabase
         .from('bookings')
         .select('*')
@@ -52,6 +58,11 @@ export default function AdminWorkflow() {
   }
 
   const confirmBooking = async (bookingId: string) => {
+    if (!supabase) {
+      console.log('Supabase not configured')
+      return
+    }
+
     try {
       const { error } = await supabase
         .from('bookings')
@@ -76,6 +87,11 @@ export default function AdminWorkflow() {
   }
 
   const rejectBooking = async (bookingId: string) => {
+    if (!supabase) {
+      console.log('Supabase not configured')
+      return
+    }
+
     try {
       const { error } = await supabase
         .from('bookings')

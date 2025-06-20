@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
@@ -260,7 +260,8 @@ function PaymentForm({ bookingId, amount, type }: PaymentFormProps) {
   )
 }
 
-export default function PaymentPage() {
+// Component that uses useSearchParams
+function PaymentPageContent() {
   const searchParams = useSearchParams()
   const [bookingInfo, setBookingInfo] = useState<{
     bookingId: string
@@ -322,5 +323,27 @@ export default function PaymentPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+// Loading component for Suspense fallback
+function PaymentPageLoading() {
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8 text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-600 mx-auto mb-4"></div>
+        <h2 className="text-xl font-bold text-gray-900 mb-2">Loading Payment</h2>
+        <p className="text-gray-600">Please wait while we prepare your secure payment...</p>
+      </div>
+    </div>
+  )
+}
+
+// Main component with Suspense boundary
+export default function PaymentPage() {
+  return (
+    <Suspense fallback={<PaymentPageLoading />}>
+      <PaymentPageContent />
+    </Suspense>
   )
 } 
